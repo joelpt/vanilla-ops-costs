@@ -78,7 +78,8 @@ CREATE TABLE volume_discounts (
     discount_percentage DECIMAL(5,2),
     effective_date DATE NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (cost_item_id) REFERENCES cost_items(id)
+    FOREIGN KEY (cost_item_id) REFERENCES cost_items(id),
+    UNIQUE(cost_item_id, quantity_min, quantity_max) -- Prevent conflicting discount tiers
 );
 
 -- ================================
@@ -88,7 +89,7 @@ CREATE TABLE volume_discounts (
 -- Source companies and suppliers
 CREATE TABLE sources (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    company_name TEXT NOT NULL,
+    company_name TEXT NOT NULL UNIQUE, -- Prevent duplicate suppliers
     company_type TEXT, -- 'supplier', 'government', 'industry_report', etc.
     website_url TEXT,
     contact_info JSON, -- Phone, email, address as JSON
@@ -111,7 +112,8 @@ CREATE TABLE source_references (
     notes TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (cost_pricing_id) REFERENCES cost_pricing(id),
-    FOREIGN KEY (source_id) REFERENCES sources(id)
+    FOREIGN KEY (source_id) REFERENCES sources(id),
+    UNIQUE(cost_pricing_id, source_id, reference_type) -- Prevent duplicate references
 );
 
 -- ================================
@@ -139,7 +141,8 @@ CREATE TABLE validation_results (
     failure_reason TEXT,
     validated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (cost_pricing_id) REFERENCES cost_pricing(id),
-    FOREIGN KEY (validation_rule_id) REFERENCES validation_rules(id)
+    FOREIGN KEY (validation_rule_id) REFERENCES validation_rules(id),
+    UNIQUE(cost_pricing_id, validation_rule_id) -- Prevent duplicate validation records
 );
 
 -- ================================
@@ -156,7 +159,8 @@ CREATE TABLE collection_sessions (
     items_collected INTEGER DEFAULT 0,
     items_validated INTEGER DEFAULT 0,
     status TEXT DEFAULT 'in_progress', -- 'in_progress', 'completed', 'failed'
-    notes TEXT
+    notes TEXT,
+    UNIQUE(session_name, milestone) -- Prevent duplicate sessions for same milestone
 );
 
 -- Log individual data collection activities
