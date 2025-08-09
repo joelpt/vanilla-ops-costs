@@ -25,6 +25,10 @@ from pathlib import Path
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
+from scripts.constants import (
+    MILESTONE_DATA_COLLECTION, SESSION_STATUS_COMPLETED
+)
+
 class DatabaseInitializer:
     def __init__(self, db_path='data/costs/vanilla_costs.db', recreate=False):
         self.db_path = Path(db_path)
@@ -42,8 +46,7 @@ class DatabaseInitializer:
             with open(self.schema_path, 'r') as f:
                 return f.read()
         except FileNotFoundError:
-            print(f"ERROR: Schema file not found: {self.schema_path}")
-            sys.exit(1)
+            raise FileNotFoundError(f"Schema file not found: {self.schema_path}")
     
     def load_json_config(self, config_path):
         """Load JSON configuration file"""
@@ -51,11 +54,9 @@ class DatabaseInitializer:
             with open(config_path, 'r') as f:
                 return json.load(f)
         except FileNotFoundError:
-            print(f"ERROR: Config file not found: {config_path}")
-            sys.exit(1)
+            raise FileNotFoundError(f"Config file not found: {config_path}")
         except json.JSONDecodeError as e:
-            print(f"ERROR: Invalid JSON in {config_path}: {e}")
-            sys.exit(1)
+            raise ValueError(f"Invalid JSON in {config_path}: {e}")
     
     def create_database(self):
         """Create database and initialize with schema"""
@@ -85,6 +86,44 @@ class DatabaseInitializer:
             
         return self.db_path
     
+    def _insert_category_tree(self, conn, stream_id, categories):
+        """Helper method to insert categories and subcategories for a stream"""
+        categories_inserted = 0
+        
+        for cat_code, cat_data in categories.items():
+            # Insert main category - only count if actually inserted
+            cursor = conn.execute("""
+                INSERT OR IGNORE INTO cost_categories 
+                (revenue_stream_id, name, code, description)
+                VALUES (?, ?, ?, ?)
+            """, (stream_id, cat_data['name'], cat_code, cat_data.get('description', '')))
+            if cursor.rowcount > 0:
+                categories_inserted += 1
+            
+            # Get category ID for subcategories
+            cursor = conn.execute("""
+                SELECT id FROM cost_categories 
+                WHERE revenue_stream_id = ? AND code = ?
+            """, (stream_id, cat_code))
+            cat_row = cursor.fetchone()
+            if not cat_row:
+                continue
+            parent_cat_id = cat_row[0]
+            
+            # Insert subcategories - only count if actually inserted
+            subcategories = cat_data.get('subcategories', {})
+            for subcat_code, subcat_data in subcategories.items():
+                cursor = conn.execute("""
+                    INSERT OR IGNORE INTO cost_categories 
+                    (revenue_stream_id, name, code, description, parent_category_id)
+                    VALUES (?, ?, ?, ?, ?)
+                """, (stream_id, subcat_data['name'], subcat_code, 
+                     subcat_data.get('description', ''), parent_cat_id))
+                if cursor.rowcount > 0:
+                    categories_inserted += 1
+        
+        return categories_inserted
+    
     def populate_cost_categories(self):
         """Populate cost categories from taxonomy JSON"""
         print("Loading cost category taxonomy...")
@@ -98,7 +137,7 @@ class DatabaseInitializer:
                 revenue_stream_map[row[1]] = row[0]
             
             # Insert cost categories
-            categories_inserted = 0
+            total_categories_inserted = 0
             
             # Process each revenue stream
             for stream_code, stream_data in taxonomy['cost_taxonomy']['revenue_streams'].items():
@@ -107,42 +146,7 @@ class DatabaseInitializer:
                     
                 stream_id = revenue_stream_map[stream_code]
                 categories = stream_data.get('categories', {})
-                
-                for cat_code, cat_data in categories.items():
-                    # Insert main category
-                    try:
-                        conn.execute("""
-                            INSERT OR IGNORE INTO cost_categories 
-                            (revenue_stream_id, name, code, description)
-                            VALUES (?, ?, ?, ?)
-                        """, (stream_id, cat_data['name'], cat_code, cat_data.get('description', '')))
-                        categories_inserted += 1
-                    except sqlite3.IntegrityError:
-                        pass  # Category already exists
-                    
-                    # Get category ID for subcategories
-                    cursor = conn.execute("""
-                        SELECT id FROM cost_categories 
-                        WHERE revenue_stream_id = ? AND code = ?
-                    """, (stream_id, cat_code))
-                    cat_row = cursor.fetchone()
-                    if not cat_row:
-                        continue
-                    parent_cat_id = cat_row[0]
-                    
-                    # Insert subcategories
-                    subcategories = cat_data.get('subcategories', {})
-                    for subcat_code, subcat_data in subcategories.items():
-                        try:
-                            conn.execute("""
-                                INSERT OR IGNORE INTO cost_categories 
-                                (revenue_stream_id, name, code, description, parent_category_id)
-                                VALUES (?, ?, ?, ?, ?)
-                            """, (stream_id, subcat_data['name'], subcat_code, 
-                                 subcat_data.get('description', ''), parent_cat_id))
-                            categories_inserted += 1
-                        except sqlite3.IntegrityError:
-                            pass  # Subcategory already exists
+                total_categories_inserted += self._insert_category_tree(conn, stream_id, categories)
             
             # Process supporting operations
             if 'supporting_operations' in taxonomy['cost_taxonomy']:
@@ -151,58 +155,26 @@ class DatabaseInitializer:
                 
                 if stream_id:
                     categories = supporting_ops.get('categories', {})
-                    for cat_code, cat_data in categories.items():
-                        try:
-                            conn.execute("""
-                                INSERT OR IGNORE INTO cost_categories 
-                                (revenue_stream_id, name, code, description)
-                                VALUES (?, ?, ?, ?)
-                            """, (stream_id, cat_data['name'], cat_code, cat_data.get('description', '')))
-                            categories_inserted += 1
-                        except sqlite3.IntegrityError:
-                            pass
-                        
-                        # Get category ID for subcategories
-                        cursor = conn.execute("""
-                            SELECT id FROM cost_categories 
-                            WHERE revenue_stream_id = ? AND code = ?
-                        """, (stream_id, cat_code))
-                        cat_row = cursor.fetchone()
-                        if not cat_row:
-                            continue
-                        parent_cat_id = cat_row[0]
-                        
-                        # Insert subcategories
-                        subcategories = cat_data.get('subcategories', {})
-                        for subcat_code, subcat_data in subcategories.items():
-                            try:
-                                conn.execute("""
-                                    INSERT OR IGNORE INTO cost_categories 
-                                    (revenue_stream_id, name, code, description, parent_category_id)
-                                    VALUES (?, ?, ?, ?, ?)
-                                """, (stream_id, subcat_data['name'], subcat_code, 
-                                     subcat_data.get('description', ''), parent_cat_id))
-                                categories_inserted += 1
-                            except sqlite3.IntegrityError:
-                                pass
+                    total_categories_inserted += self._insert_category_tree(conn, stream_id, categories)
             
             conn.commit()
-            print(f"Inserted {categories_inserted} cost categories")
+            print(f"Inserted {total_categories_inserted} cost categories")
     
     def create_initial_collection_session(self):
         """Create initial collection session for tracking"""
         with sqlite3.connect(self.db_path) as conn:
-            try:
-                conn.execute("""
-                    INSERT OR IGNORE INTO collection_sessions 
-                    (session_name, milestone, status, notes)
-                    VALUES (?, ?, ?, ?)
-                """, ('Database Initialization', 'milestone_1', 'completed', 
-                     'Initial database setup and schema creation'))
-                conn.commit()
+            cursor = conn.execute("""
+                INSERT OR IGNORE INTO collection_sessions 
+                (session_name, milestone, status, notes)
+                VALUES (?, ?, ?, ?)
+            """, ('Database Initialization', MILESTONE_DATA_COLLECTION, SESSION_STATUS_COMPLETED, 
+                 'Initial database setup and schema creation'))
+            
+            # Only print if a row was actually inserted
+            if cursor.rowcount > 0:
                 print("Created initial collection session")
-            except sqlite3.IntegrityError:
-                pass  # Session already exists
+            
+            conn.commit()
     
     def verify_database(self):
         """Verify database was created correctly"""
@@ -297,10 +269,16 @@ def main():
             return
     
     # Initialize database
-    initializer = DatabaseInitializer(db_path=args.db_path, recreate=args.recreate)
-    success = initializer.initialize()
-    
-    sys.exit(0 if success else 1)
+    try:
+        initializer = DatabaseInitializer(db_path=args.db_path, recreate=args.recreate)
+        success = initializer.initialize()
+        sys.exit(0 if success else 1)
+    except (FileNotFoundError, ValueError) as e:
+        print(f"ERROR: {e}")
+        sys.exit(1)
+    except Exception as e:
+        print(f"UNEXPECTED ERROR: {e}")
+        sys.exit(1)
 
 if __name__ == '__main__':
     main()

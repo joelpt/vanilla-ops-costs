@@ -24,6 +24,7 @@ from typing import Dict, List, Optional, Any
 project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
+from scripts.constants import STATUS_ACTIVE
 from validation import DataValidator, ValidationLevel
 
 class ValidationRunner:
@@ -115,7 +116,7 @@ class ValidationRunner:
         """Retrieve all items from database"""
         try:
             with sqlite3.connect(self.db_path) as conn:
-                cursor = conn.execute("SELECT item_id FROM cost_items WHERE status = 'active'")
+                cursor = conn.execute("SELECT item_id FROM cost_items WHERE status = ?", (STATUS_ACTIVE,))
                 item_ids = [row[0] for row in cursor.fetchall()]
                 
                 items = []
@@ -139,8 +140,8 @@ class ValidationRunner:
                     FROM collection_log cl
                     JOIN collection_sessions cs ON cl.session_id = cs.id
                     JOIN cost_items ci ON cl.cost_item_id = ci.id
-                    WHERE cs.session_name = ? AND ci.status = 'active'
-                """, (session_name,))
+                    WHERE cs.session_name = ? AND ci.status = ?
+                """, (session_name, STATUS_ACTIVE))
                 
                 item_ids = [row[0] for row in cursor.fetchall()]
                 

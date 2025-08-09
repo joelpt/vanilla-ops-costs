@@ -34,6 +34,12 @@ from abc import ABC, abstractmethod
 project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
+from scripts.constants import (
+    STATUS_ACTIVE, COMPANY_TYPE_SUPPLIER, SOURCE_TIER_PRIMARY,
+    MILESTONE_DATA_COLLECTION, SESSION_STATUS_IN_PROGRESS,
+    REFERENCE_TYPE_PRIMARY, ACTIVITY_TYPE_CREATED, DEFAULT_UNIT
+)
+
 @dataclass
 class ScrapedProduct:
     """Standard data structure for scraped product information"""
@@ -389,6 +395,116 @@ class BaseScraper(ABC):
         
         return issues
     
+    def _get_or_create_session(self, conn: sqlite3.Connection, session_id: Optional[str]) -> Optional[int]:
+        """Get or create collection session and return database session ID"""
+        if not session_id:
+            return None
+            
+        conn.execute("""
+            INSERT OR IGNORE INTO collection_sessions 
+            (session_name, milestone, status)
+            VALUES (?, ?, ?)
+        """, (session_id, MILESTONE_DATA_COLLECTION, SESSION_STATUS_IN_PROGRESS))
+        
+        cursor = conn.execute(
+            "SELECT id FROM collection_sessions WHERE session_name = ?",
+            (session_id,)
+        )
+        session_row = cursor.fetchone()
+        return session_row[0] if session_row else None
+    
+    def _insert_cost_item(self, conn: sqlite3.Connection, product: ScrapedProduct) -> Optional[int]:
+        """Insert cost item and return the cost item ID"""
+        conn.execute("""
+            INSERT OR REPLACE INTO cost_items 
+            (item_id, item_name, category_id, specifications, notes, status)
+            VALUES (?, ?, 
+                   (SELECT id FROM cost_categories WHERE code = ? LIMIT 1), 
+                   ?, ?, ?)
+        """, (
+            product.item_id,
+            product.item_name,
+            product.category,
+            json.dumps(product.specifications) if product.specifications else None,
+            product.notes,
+            STATUS_ACTIVE
+        ))
+        
+        cursor = conn.execute(
+            "SELECT id FROM cost_items WHERE item_id = ?",
+            (product.item_id,)
+        )
+        cost_item_row = cursor.fetchone()
+        return cost_item_row[0] if cost_item_row else None
+    
+    def _insert_pricing(self, conn: sqlite3.Connection, cost_item_id: int, product: ScrapedProduct) -> Optional[int]:
+        """Insert pricing information and return pricing ID"""
+        if product.unit_cost is None:
+            return None
+            
+        conn.execute("""
+            INSERT INTO cost_pricing 
+            (cost_item_id, unit_cost, unit, effective_date, confidence_level)
+            VALUES (?, ?, ?, DATE('now'), ?)
+        """, (
+            cost_item_id,
+            product.unit_cost,
+            product.unit or DEFAULT_UNIT,
+            product.confidence_level
+        ))
+        
+        cursor = conn.execute(
+            "SELECT id FROM cost_pricing WHERE cost_item_id = ? ORDER BY id DESC LIMIT 1",
+            (cost_item_id,)
+        )
+        pricing_row = cursor.fetchone()
+        return pricing_row[0] if pricing_row else None
+    
+    def _insert_source_reference(self, conn: sqlite3.Connection, pricing_id: int, product: ScrapedProduct) -> bool:
+        """Insert source reference and return success status"""
+        if not product.source_url:
+            return False
+            
+        # Get or create source
+        conn.execute("""
+            INSERT OR IGNORE INTO sources (company_name, company_type, tier)
+            VALUES (?, ?, ?)
+        """, (self.supplier_name, COMPANY_TYPE_SUPPLIER, SOURCE_TIER_PRIMARY))
+        
+        cursor = conn.execute(
+            "SELECT id FROM sources WHERE company_name = ?",
+            (self.supplier_name,)
+        )
+        source_row = cursor.fetchone()
+        source_id = source_row[0] if source_row else None
+        
+        if not source_id:
+            return False
+            
+        conn.execute("""
+            INSERT INTO source_references 
+            (cost_pricing_id, source_id, reference_type, source_url, 
+             product_code, date_accessed)
+            VALUES (?, ?, ?, ?, ?, DATE('now'))
+        """, (
+            pricing_id, source_id, REFERENCE_TYPE_PRIMARY, product.source_url,
+            product.product_code
+        ))
+        
+        return True
+    
+    def _log_collection_activity(self, conn: sqlite3.Connection, db_session_id: int, 
+                               cost_item_id: int, product: ScrapedProduct) -> None:
+        """Log collection activity for audit trail"""
+        conn.execute("""
+            INSERT INTO collection_log 
+            (session_id, cost_item_id, action_type, new_values)
+            VALUES (?, ?, ?, ?)
+        """, (
+            db_session_id, cost_item_id, ACTIVITY_TYPE_CREATED,
+            json.dumps(asdict(product))
+        ))
+    
     def save_products(self, products: List[ScrapedProduct], 
                      session_id: Optional[str] = None) -> int:
         """Save scraped products to database"""
@@ -396,112 +512,26 @@ class BaseScraper(ABC):
             return 0
         
         session_id = session_id or (self.current_session.session_id if self.current_session else None)
-        
         saved_count = 0
         
         with sqlite3.connect(self.db_path) as conn:
-            # Get collection session
-            if session_id:
-                conn.execute("""
-                    INSERT OR IGNORE INTO collection_sessions 
-                    (session_name, milestone, status)
-                    VALUES (?, ?, ?)
-                """, (session_id, 'data_collection', 'in_progress'))
-                
-                cursor = conn.execute(
-                    "SELECT id FROM collection_sessions WHERE session_name = ?",
-                    (session_id,)
-                )
-                session_row = cursor.fetchone()
-                db_session_id = session_row[0] if session_row else None
-            else:
-                db_session_id = None
+            db_session_id = self._get_or_create_session(conn, session_id)
             
             for product in products:
                 try:
                     # Insert cost item
-                    conn.execute("""
-                        INSERT OR REPLACE INTO cost_items 
-                        (item_id, item_name, category_id, specifications, notes, status)
-                        VALUES (?, ?, 
-                               (SELECT id FROM cost_categories WHERE code = ? LIMIT 1), 
-                               ?, ?, ?)
-                    """, (
-                        product.item_id,
-                        product.item_name,
-                        product.category,
-                        json.dumps(product.specifications) if product.specifications else None,
-                        product.notes,
-                        'active'
-                    ))
-                    
-                    # Get cost item ID
-                    cursor = conn.execute(
-                        "SELECT id FROM cost_items WHERE item_id = ?",
-                        (product.item_id,)
-                    )
-                    cost_item_row = cursor.fetchone()
-                    if not cost_item_row:
+                    cost_item_id = self._insert_cost_item(conn, product)
+                    if not cost_item_id:
                         continue
-                    cost_item_id = cost_item_row[0]
                     
-                    # Insert pricing if available
-                    if product.unit_cost is not None:
-                        conn.execute("""
-                            INSERT INTO cost_pricing 
-                            (cost_item_id, unit_cost, unit, effective_date, confidence_level)
-                            VALUES (?, ?, ?, DATE('now'), ?)
-                        """, (
-                            cost_item_id,
-                            product.unit_cost,
-                            product.unit or 'each',
-                            product.confidence_level
-                        ))
-                        
-                        # Get pricing ID for source reference
-                        cursor = conn.execute(
-                            "SELECT id FROM cost_pricing WHERE cost_item_id = ? ORDER BY id DESC LIMIT 1",
-                            (cost_item_id,)
-                        )
-                        pricing_row = cursor.fetchone()
-                        pricing_id = pricing_row[0] if pricing_row else None
-                        
-                        # Insert source reference if available
-                        if pricing_id and product.source_url:
-                            # Get or create source
-                            conn.execute("""
-                                INSERT OR IGNORE INTO sources (company_name, company_type, tier)
-                                VALUES (?, ?, ?)
-                            """, (self.supplier_name, 'supplier', 1))
-                            
-                            cursor = conn.execute(
-                                "SELECT id FROM sources WHERE company_name = ?",
-                                (self.supplier_name,)
-                            )
-                            source_row = cursor.fetchone()
-                            source_id = source_row[0] if source_row else None
-                            
-                            if source_id:
-                                conn.execute("""
-                                    INSERT INTO source_references 
-                                    (cost_pricing_id, source_id, reference_type, source_url, 
-                                     product_code, date_accessed)
-                                    VALUES (?, ?, ?, ?, ?, DATE('now'))
-                                """, (
-                                    pricing_id, source_id, 'primary', product.source_url,
-                                    product.product_code
-                                ))
+                    # Insert pricing and source reference if available
+                    pricing_id = self._insert_pricing(conn, cost_item_id, product)
+                    if pricing_id:
+                        self._insert_source_reference(conn, pricing_id, product)
                     
-                    # Log the activity
+                    # Log collection activity
                     if db_session_id:
-                        conn.execute("""
-                            INSERT INTO collection_log 
-                            (session_id, cost_item_id, action_type, new_values)
-                            VALUES (?, ?, ?, ?)
-                        """, (
-                            db_session_id, cost_item_id, 'created',
-                            json.dumps(asdict(product))
-                        ))
+                        self._log_collection_activity(conn, db_session_id, cost_item_id, product)
                     
                     saved_count += 1
                     
@@ -527,6 +557,7 @@ class BaseScraper(ABC):
         Run complete scraping session with proper session management
         """
         self.start_session()
+        exception_occurred = None
         
         try:
             # Run the actual scraping
@@ -550,6 +581,10 @@ class BaseScraper(ABC):
         except Exception as e:
             self.logger.error(f"Scraping session failed: {e}")
             self.current_session.errors.append(str(e))
-            raise
+            exception_occurred = e
         finally:
-            return self.end_session()
+            result = self.end_session()
+        
+        if exception_occurred:
+            raise exception_occurred
+        return result
