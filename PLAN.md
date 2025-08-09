@@ -204,18 +204,18 @@ Create a data-driven cost model with verifiable sources for:
 
 #### Operational Costs
 - [x] **COMPLETED** - 2.16 Estimate water consumption and costs (Oregon City rates with near 100% recycling targets) (See: data/vanilla_water_consumption_costs_oregon_city_2025.md)
-- [ ] 2.17 Research fertilizer/nutrient programs (including earthworm castings, contractor-applied)
-- [ ] 2.18 Price growing media/substrate for traditional bench system
-- [ ] 2.19 Estimate contractor labor requirements and costs (no full-time employees)
+- [x] **COMPLETED** - 2.17 Research fertilizer/nutrient programs (including earthworm castings, contractor-applied) (See: data/vanilla_fertilizer_nutrient_programs_2025.md)
+- [x] **COMPLETED** - 2.18 Price growing media/substrate for traditional bench system (See: data/vanilla_growing_media_substrate_costs_2025.md)
+- [x] **COMPLETED** - 2.19 Estimate contractor labor requirements and costs (See: data/vanilla_contractor_labor_requirements_costs_2025.md)
 
 #### Circular Economy Systems (Per Slide 9, 12)
-- [ ] 2.21 Research water recycling systems for near 100% water recovery
-- [ ] 2.22 Price waste-to-revenue processing equipment for cuttings, organic matter, heat recovery
-- [ ] 2.23 Cost organic waste recycling partnerships
+- [x] **COMPLETED** - 2.21 Research water recycling systems for near 100% water recovery (See: data/vanilla_water_recycling_systems_research_2025.md)
+- [x] **COMPLETED** - 2.22 Price waste-to-revenue processing equipment for cuttings, organic matter, heat recovery (See: data/waste_to_revenue_processing_equipment_2025.md)
+- [x] **COMPLETED** - 2.23 Cost organic waste recycling partnerships (See: data/organic_waste_recycling_partnerships_2025.md)
 
 #### Renewable Energy Options
-- [ ] 2.24 Research Oregon City utility renewable energy premium costs
-- [ ] 2.25 Calculate ROI for owned vs purchased renewable energy (no on-site solar/wind installation)
+- [x] **COMPLETED** - 2.24 Research Oregon City utility renewable energy premium costs (See: data/oregon_city_renewable_energy_premium_costs_2025.md)
+- [x] **COMPLETED** - 2.25 Calculate ROI for owned vs purchased renewable energy (See: data/owned_vs_purchased_renewable_energy_roi_2025.md)
 
 #### Vanilla-Specific Equipment
 - [ ] 2.28 Research pollination tools and supplies for Grade A vanilla
@@ -291,27 +291,60 @@ Create a data-driven cost model with verifiable sources for:
 - [ ] 5.21 Estimate accommodation costs for Florida/Hawaii provider meetings
 - [ ] 5.22 Calculate meal and ground transportation for business travel
 
-### Milestone 6: Final Compilation (Weeks 7-8)
-#### Data Validation
-- [ ] 6.1 Cross-reference all sources
-- [ ] 6.2 Validate price ranges
-- [ ] 6.3 Document confidence levels
-- [ ] 6.4 Flag items needing quotes
-- [ ] 6.5 Peer review findings
+### Milestone 6: Market Analysis & Financial Modeling (Weeks 7-9)
 
-#### Documentation
-- [ ] 6.6 Create master cost spreadsheet
-- [ ] 6.7 Compile source reference database
-- [ ] 6.8 Write assumptions document
-- [ ] 6.9 Generate executive summary
-- [ ] 6.10 Build interactive dashboard
+*Strategic transition from cost data collection to business intelligence and investment analysis*
 
-#### Delivery
-- [ ] 6.11 Package all deliverables
-- [ ] 6.12 Create user guide
-- [ ] 6.13 Set up update procedures
-- [ ] 6.14 Conduct handoff meeting
-- [ ] 6.15 Archive project materials
+#### Phase A: Market Research Foundation (Tasks 6.1-6.10)
+**Primary Research Design & Execution**
+- [ ] 6.1 Design primary research surveys for vanilla end-users (food manufacturers, artisan bakers, specialty retailers)
+- [ ] 6.2 Identify and recruit interview subjects across target customer segments (minimum 15 qualified subjects)
+- [ ] 6.3 Conduct customer interviews and pricing sensitivity analysis (85% completion rate target)
+- [ ] 6.4 Survey vanilla suppliers for competitive intelligence
+- [ ] 6.5 Analyze primary research data and extract key market insights
+
+**Secondary Research & Competitive Analysis**
+- [ ] 6.6 Research vanilla market size and growth trends (IBISWorld, Euromonitor, trade associations)
+- [ ] 6.7 Analyze competitive landscape for direct-to-consumer vanilla sales
+- [ ] 6.8 Research contract manufacturing market for natural flavor extracts
+- [ ] 6.9 Investigate cellular agriculture competitive landscape and market projections
+- [ ] 6.10 Consolidate secondary research into market opportunity assessment
+
+#### Phase B: Financial Integration & Modeling (Tasks 6.11-6.25)
+**Data Consolidation & Validation**
+- [ ] 6.11 Audit and consolidate all cost data from Milestones 2-5 into master database (95% integration target)
+- [ ] 6.12 Validate cost data accuracy and identify gaps requiring additional research
+- [ ] 6.13 Develop pricing models based on market research insights
+- [ ] 6.14 Create pro forma income statements for each revenue stream (5-year projections)
+- [ ] 6.15 Build cash flow models incorporating seasonal patterns and working capital requirements
+
+**Pro Forma Development & Analysis**
+- [ ] 6.16 Develop sensitivity analysis for key cost and revenue drivers
+- [ ] 6.17 Model different scale scenarios (conservative, aggressive, optimistic growth)
+- [ ] 6.18 Create competitive positioning analysis with pricing strategy implications
+- [ ] 6.19 Build return on investment calculations for each business model
+- [ ] 6.20 Integrate renewable energy and sustainability economics into financial models
+
+#### Phase C: Strategic Analysis & Recommendations (Tasks 6.21-6.25)
+**Portfolio Analysis & Risk Assessment**
+- [ ] 6.21 Portfolio analysis comparing risk/return profiles of three revenue streams
+- [ ] 6.22 Market entry strategy development for each business model
+- [ ] 6.23 Investment requirements analysis and funding strategy recommendations
+- [ ] 6.24 Risk assessment matrix with mitigation strategies
+- [ ] 6.25 Business case development with executive summary and recommendations
+
+#### Quality Control & Execution Framework
+**Validation Checkpoints**
+- Peer review after every 5 tasks
+- External validation for market research findings (industry expert review)
+- Financial model validation using sensitivity analysis and scenario testing
+- Cross-referencing all cost data against original source documentation
+
+**Success Metrics**
+- Primary research: Minimum 15 customer interviews, 85% survey completion rate
+- Secondary research: Coverage of all major vanilla market segments and competitive players
+- Financial modeling: 95% cost data integration from previous milestones, validated pro formas for all revenue streams
+- Strategic analysis: Actionable business recommendations with clear investment requirements and ROI projections
 
 ## Implementation Notes
 
@@ -362,10 +395,20 @@ Create a data-driven cost model with verifiable sources for:
 - **Citations**: Multi-format citation management with defensive copying
 - **Version Control**: All infrastructure committed with conventional commits
 
-### Ready for Data Collection
-- **Milestone 0**: Pre-implementation research completed with comprehensive documentation
-- **Milestone 1**: Infrastructure setup completed with enhanced features
-- **Next Phase**: Begin systematic cost data collection for Milestone 2 (Grow & Produce)
+### Milestone Progress
+- **Milestone 0**: ✅ Pre-implementation research completed with comprehensive documentation
+- **Milestone 1**: ✅ Infrastructure setup completed with enhanced features
+- **Milestone 2**: 🚧 Grow & Produce costs - 25 of 27 tasks completed (92.6% complete)
+  - Infrastructure, Curing, Extraction, Operational, and Circular Economy sections completed
+  - Renewable Energy Options completed with comprehensive ROI analysis
+  - Remaining: 2.28-2.29 Vanilla-specific equipment (pollination tools, quality testing)
+- **Milestone 6**: ✅ Comprehensive market analysis and financial modeling strategy developed
+  - 25-task implementation plan with market research, financial modeling, and strategic analysis phases
+  - Quality control framework and success metrics established
+  - Ready for execution following cost data collection completion
+
+### Next Phase
+Continue Milestone 2 completion with remaining vanilla-specific equipment tasks, then proceed to Milestone 3 (Partner & Produce Costs)
 
 ### Key Achievements
 - Eliminated 145+ lines of duplicated code through refactoring
