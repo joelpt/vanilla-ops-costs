@@ -1,0 +1,286 @@
+{
+  "source_citation_format": {
+    "version": "1.0",
+    "description": "Terra35 Vanilla Operations Cost Analysis - Source Citation Standards",
+    "last_updated": "2024-12-30",
+    
+    "citation_requirements": {
+      "mandatory_fields": [
+        "source_url",
+        "company_name",
+        "date_accessed",
+        "data_type"
+      ],
+      "recommended_fields": [
+        "product_code",
+        "contact_person",
+        "quote_number",
+        "document_title",
+        "screenshot_path"
+      ],
+      "optional_fields": [
+        "phone_number",
+        "email",
+        "physical_address",
+        "additional_notes"
+      ]
+    },
+    
+    "citation_templates": {
+      "supplier_website": {
+        "format": "{company_name}. \"{product_name}\" [{product_code}]. {website_name}. Accessed {date_accessed}. {source_url}",
+        "example": "FarmTek. \"Gothic Arch Greenhouse Kit\" [GT-1220]. FarmTek.com. Accessed December 30, 2024. https://www.farmtek.com/product/gothic-arch-greenhouse-gt-1220",
+        "required_fields": ["company_name", "product_name", "website_name", "date_accessed", "source_url"],
+        "optional_fields": ["product_code"]
+      },
+      "direct_quote": {
+        "format": "{contact_person}, {company_name}. Personal communication [Quote #{quote_number}]. {date_accessed}",
+        "example": "Smith, John, FarmTek Sales. Personal communication [Quote #FT-2024-1234]. December 30, 2024",
+        "required_fields": ["contact_person", "company_name", "date_accessed"],
+        "optional_fields": ["quote_number", "email", "phone_number"]
+      },
+      "catalog_document": {
+        "format": "{company_name}. \"{document_title}\" [{document_version}]. {publication_date}. Page {page_number}",
+        "example": "GrowSpan. \"2024 Greenhouse Systems Catalog\" [v2.1]. January 2024. Page 45",
+        "required_fields": ["company_name", "document_title", "publication_date"],
+        "optional_fields": ["document_version", "page_number", "document_url"]
+      },
+      "government_source": {
+        "format": "{agency_name}. \"{report_title}\" [{report_number}]. {publication_date}. {source_url}",
+        "example": "U.S. Energy Information Administration. \"Electric Power Monthly\" [EPM-2024-12]. December 2024. https://www.eia.gov/electricity/monthly/",
+        "required_fields": ["agency_name", "report_title", "publication_date", "source_url"],
+        "optional_fields": ["report_number", "page_number"]
+      },
+      "industry_report": {
+        "format": "{organization_name}. \"{report_title}\" [{report_type}]. {publication_date}. {publisher}",
+        "example": "Greenhouse Grower Magazine. \"2024 Equipment Cost Survey\" [Industry Report]. March 2024. Meister Media Worldwide",
+        "required_fields": ["organization_name", "report_title", "publication_date"],
+        "optional_fields": ["report_type", "publisher", "source_url"]
+      },
+      "academic_source": {
+        "format": "{authors}. \"{paper_title}\" {journal_name}, vol. {volume}, no. {issue} ({publication_date}), pp. {page_range}. {doi}",
+        "example": "Johnson, A., & Smith, B. \"Cost Analysis of Controlled Environment Agriculture\" Journal of Agricultural Economics, vol. 45, no. 3 (2024), pp. 123-145. doi:10.1234/jae.2024.0123",
+        "required_fields": ["authors", "paper_title", "journal_name", "publication_date"],
+        "optional_fields": ["volume", "issue", "page_range", "doi", "source_url"]
+      }
+    },
+    
+    "data_source_types": {
+      "tier_1_preferred": {
+        "description": "Direct from supplier - highest confidence",
+        "types": [
+          "manufacturer_website",
+          "direct_quote",
+          "official_catalog", 
+          "authorized_dealer"
+        ],
+        "confidence_level": "HIGH to VERIFIED",
+        "validation_requirements": [
+          "URL must be official company domain",
+          "Product codes must be verifiable",
+          "Quotes must include contact information"
+        ]
+      },
+      "tier_2_acceptable": {
+        "description": "Industry sources - good confidence",
+        "types": [
+          "government_database",
+          "industry_report",
+          "trade_publication",
+          "professional_survey"
+        ],
+        "confidence_level": "MEDIUM to HIGH", 
+        "validation_requirements": [
+          "Source must be recognized authority",
+          "Data must be current (< 12 months)",
+          "Methodology must be documented"
+        ]
+      },
+      "tier_3_caution": {
+        "description": "Indirect sources - use with caution",
+        "types": [
+          "comparable_product",
+          "historical_data_adjusted",
+          "regional_average",
+          "third_party_aggregator"
+        ],
+        "confidence_level": "LOW to MEDIUM",
+        "validation_requirements": [
+          "Clear documentation of assumptions",
+          "Cross-reference with other sources",
+          "Flag for verification when possible"
+        ]
+      }
+    },
+    
+    "screenshot_requirements": {
+      "when_required": [
+        "Price information from supplier websites",
+        "Product specifications and details",
+        "Quotes and direct communications",
+        "Any data that could change frequently"
+      ],
+      "file_naming": "{supplier}_{product_code}_{date_YYYYMMDD}_{sequence}.png",
+      "storage_location": "data/sources/screenshots/",
+      "metadata_required": [
+        "screenshot_timestamp",
+        "browser_info",
+        "page_url",
+        "related_item_ids"
+      ]
+    },
+    
+    "quality_indicators": {
+      "excellent_source": {
+        "criteria": [
+          "Tier 1 source type",
+          "Current data (< 30 days)",
+          "Product code included",
+          "Screenshot archived",
+          "Multiple validation points"
+        ],
+        "confidence_boost": 0.20
+      },
+      "good_source": {
+        "criteria": [
+          "Tier 1-2 source type", 
+          "Recent data (< 90 days)",
+          "Complete contact information",
+          "Verifiable source"
+        ],
+        "confidence_boost": 0.10
+      },
+      "acceptable_source": {
+        "criteria": [
+          "Any recognized source",
+          "Data within acceptable age limits",
+          "Proper documentation"
+        ],
+        "confidence_boost": 0.05
+      },
+      "questionable_source": {
+        "criteria": [
+          "Missing required fields",
+          "Old data (> 1 year)",
+          "Unverifiable source",
+          "Indirect estimation"
+        ],
+        "confidence_penalty": -0.15
+      }
+    },
+    
+    "documentation_standards": {
+      "source_reference_file": {
+        "filename_format": "{supplier}_{category}_{date_YYYYMMDD}.md",
+        "required_sections": [
+          "Source Information",
+          "Data Collected",
+          "Validation Notes", 
+          "Screenshots/Attachments",
+          "Follow-up Required"
+        ],
+        "template_location": "templates/source_reference_template.md"
+      },
+      "batch_collection_log": {
+        "filename_format": "collection_session_{session_id}.json",
+        "required_fields": [
+          "session_metadata",
+          "sources_accessed",
+          "data_collected",
+          "validation_results",
+          "issues_encountered"
+        ]
+      }
+    },
+    
+    "verification_procedures": {
+      "url_verification": {
+        "check_accessibility": true,
+        "verify_ssl_certificate": true,
+        "check_robots_txt": true,
+        "validate_domain_authority": true
+      },
+      "data_verification": {
+        "cross_reference_sources": "minimum 2 sources for critical data",
+        "price_reasonableness": "flag outliers > 50% variance",
+        "temporal_consistency": "verify data hasn't changed significantly",
+        "contact_verification": "verify contact information when possible"
+      },
+      "periodic_revalidation": {
+        "tier_1_sources": "90 days",
+        "tier_2_sources": "180 days", 
+        "tier_3_sources": "30 days",
+        "critical_data": "30 days regardless of tier"
+      }
+    },
+    
+    "citation_database_schema": {
+      "source_references": {
+        "id": "unique identifier",
+        "item_id": "cost item this relates to",
+        "citation_type": "supplier_website|direct_quote|catalog|etc",
+        "citation_formatted": "human-readable citation",
+        "source_url": "primary URL",
+        "company_name": "supplier/organization name",
+        "contact_person": "person contacted (if applicable)",
+        "product_code": "supplier product code",
+        "date_accessed": "when data was collected",
+        "data_extracted": "specific data points collected",
+        "screenshot_path": "path to archived screenshot",
+        "verification_status": "verified|pending|failed",
+        "confidence_score": "calculated confidence level",
+        "notes": "additional notes and context"
+      }
+    },
+    
+    "automation_support": {
+      "citation_generator": {
+        "description": "Automated citation formatting based on source type",
+        "input_fields": "source_data dictionary",
+        "output": "formatted citation string"
+      },
+      "screenshot_automation": {
+        "description": "Automated screenshot capture during scraping",
+        "trigger_conditions": [
+          "price information found",
+          "product specification page", 
+          "quote or catalog page"
+        ]
+      },
+      "validation_automation": {
+        "description": "Automated validation checks",
+        "checks": [
+          "URL accessibility",
+          "Required fields present",
+          "Citation format compliance",
+          "Data freshness"
+        ]
+      }
+    },
+    
+    "examples": {
+      "complete_source_documentation": {
+        "item_id": "FARMTEK_GH123",
+        "citation_type": "supplier_website",
+        "citation_formatted": "FarmTek. \"Gothic Arch Greenhouse Kit 12'x20'\" [GT-1220]. FarmTek.com. Accessed December 30, 2024. https://www.farmtek.com/product/gothic-arch-greenhouse-gt-1220",
+        "source_url": "https://www.farmtek.com/product/gothic-arch-greenhouse-gt-1220",
+        "company_name": "FarmTek",
+        "product_code": "GT-1220",
+        "date_accessed": "2024-12-30",
+        "data_extracted": {
+          "price": "$2,499.00",
+          "unit": "each",
+          "specifications": {
+            "size": "12' x 20'",
+            "covering": "6mm twin-wall polycarbonate",
+            "frame": "galvanized steel"
+          }
+        },
+        "screenshot_path": "data/sources/screenshots/farmtek_GT-1220_20241230_001.png",
+        "verification_status": "verified",
+        "confidence_score": 0.90,
+        "notes": "Price verified on supplier website, product currently in stock"
+      }
+    }
+  }
+}

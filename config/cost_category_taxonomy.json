@@ -1,0 +1,354 @@
+{
+  "cost_taxonomy": {
+    "version": "1.0",
+    "created_date": "2024-12-30",
+    "description": "Terra35 Vanilla Operations Cost Category Taxonomy - Aligned with three revenue streams",
+    
+    "revenue_streams": {
+      "grow_produce": {
+        "name": "Grow & Produce",
+        "description": "Indoor greenhouse vanilla cultivation (5000 sq ft, Oregon City, 85°F climate control)",
+        "production_target": "150 gallons Year 1 extract, 400 gallons total products",
+        "categories": {
+          "infrastructure": {
+            "name": "Greenhouse Infrastructure",
+            "subcategories": {
+              "structures": {
+                "name": "Greenhouse Structures",
+                "items": ["greenhouse_frame", "covering_materials", "doors_vents", "foundations"]
+              },
+              "benching": {
+                "name": "Benching & Racking Systems",
+                "items": ["traditional_benches", "support_structures", "drainage_systems"]
+              },
+              "trellis": {
+                "name": "Trellis Systems for Vanilla Vines", 
+                "items": ["vertical_supports", "wire_systems", "anchoring", "vine_guides"]
+              },
+              "irrigation": {
+                "name": "Irrigation & Fertigation",
+                "items": ["drip_systems", "fertigation_injectors", "water_distribution", "controls"]
+              },
+              "climate_control": {
+                "name": "Climate Control Systems",
+                "items": ["hvac_systems", "fans", "shade_cloth", "humidity_control", "temperature_sensors"]
+              },
+              "lighting": {
+                "name": "Supplemental Lighting",
+                "items": ["led_fixtures", "controls", "electrical", "mounting"]
+              }
+            }
+          },
+          "curing_facility": {
+            "name": "Curing Facility",
+            "subcategories": {
+              "curing_chambers": {
+                "name": "Curing Chamber Systems",
+                "items": ["fermentation_chambers", "sweating_boxes", "drying_equipment"]
+              },
+              "dehydration": {
+                "name": "Dehydration Equipment",
+                "items": ["flavor_development_equipment", "controlled_drying", "air_circulation"]
+              },
+              "environmental_control": {
+                "name": "Temperature/Humidity Control",
+                "items": ["precision_controllers", "monitoring_systems", "backup_systems"]
+              },
+              "packaging": {
+                "name": "Bean Packaging Equipment",
+                "items": ["vacuum_sealers", "storage_containers", "labeling_equipment"]
+              }
+            }
+          },
+          "extraction_facility": {
+            "name": "Extraction Facility (Self-Owned, Ethanol/Water Only)",
+            "subcategories": {
+              "extraction_equipment": {
+                "name": "Extraction Equipment",
+                "items": ["ethanol_extractors", "water_extraction_systems", "mixing_tanks", "agitation_systems"]
+              },
+              "distillation": {
+                "name": "Distillation & Concentration",
+                "items": ["distillation_columns", "concentration_equipment", "heat_exchangers"]
+              },
+              "ethanol_recovery": {
+                "name": "Ethanol Recovery Systems", 
+                "items": ["recovery_stills", "condensers", "recycling_systems"]
+              },
+              "quality_control": {
+                "name": "Quality Control & Testing",
+                "items": ["testing_equipment", "laboratory_supplies", "quality_assurance_tools"]
+              },
+              "paste_production": {
+                "name": "Vanilla Paste Production",
+                "items": ["industrial_blenders", "mixing_vessels", "thickening_systems", "consistency_equipment"]
+              }
+            }
+          },
+          "operational_costs": {
+            "name": "Operational Costs",
+            "subcategories": {
+              "utilities": {
+                "name": "Utilities",
+                "items": ["electricity_oregon_city", "water_consumption", "natural_gas", "waste_disposal"]
+              },
+              "growing_supplies": {
+                "name": "Growing Supplies",
+                "items": ["fertilizer_nutrients", "earthworm_castings", "growing_media", "substrate", "pest_control"]
+              },
+              "contractor_labor": {
+                "name": "Contractor Labor (100% Contract-Based)",
+                "items": ["cultivation_contractors", "curing_contractors", "extraction_contractors", "maintenance_contractors"]
+              },
+              "raw_materials": {
+                "name": "Raw Materials for Processing",
+                "items": ["vanilla_beans_processing", "ethanol_supply", "packaging_materials"]
+              }
+            }
+          },
+          "circular_economy": {
+            "name": "Circular Economy Systems",
+            "subcategories": {
+              "water_recycling": {
+                "name": "Water Recycling Systems",
+                "items": ["recycling_equipment", "filtration_systems", "treatment_systems", "near_100_percent_recovery"]
+              },
+              "waste_revenue": {
+                "name": "Waste-to-Revenue Processing",
+                "items": ["cutting_processing", "organic_matter_processing", "heat_recovery_systems", "waste_partnerships"]
+              }
+            }
+          },
+          "renewable_energy": {
+            "name": "Renewable Energy Options",
+            "subcategories": {
+              "utility_renewable": {
+                "name": "Oregon City Utility Renewable Energy",
+                "items": ["renewable_energy_premium", "utility_sourced_renewable"]
+              }
+            }
+          }
+        }
+      },
+      
+      "partner_produce": {
+        "name": "Partner & Produce",
+        "description": "White label extract production via processing partners (100+ gallon bulk orders)",
+        "production_target": "Outsourced processing with Loran/Lorann, Cooks, Lochhead",
+        "categories": {
+          "sourcing_costs": {
+            "name": "Vanilla Bean Sourcing",
+            "subcategories": {
+              "direct_sourcing": {
+                "name": "Direct from Farms",
+                "items": ["madagascar_direct", "uganda_direct", "indonesia_direct", "us_grown_direct"]
+              },
+              "broker_sourcing": {
+                "name": "Through Brokers",
+                "items": ["madagascar_broker", "uganda_broker", "indonesia_broker", "us_grown_broker"]
+              },
+              "shipping_import": {
+                "name": "Shipping & Import Costs",
+                "items": ["international_shipping", "customs_duties", "import_fees", "handling_charges"]
+              },
+              "minimum_orders": {
+                "name": "Minimum Order Quantities",
+                "items": ["direct_moq", "broker_moq", "volume_pricing", "storage_costs"]
+              }
+            }
+          },
+          "processing_services": {
+            "name": "Processing Service Costs",
+            "subcategories": {
+              "loran_lorann": {
+                "name": "Loran/Lorann Extraction Services",
+                "items": ["service_rates_per_kg", "bulk_100_gallon_pricing", "quality_testing_fees"]
+              },
+              "cooks": {
+                "name": "Cooks Co-Packing Facility",
+                "items": ["copacking_pricing", "bulk_100_gallon_pricing", "packaging_services"]
+              },
+              "lochhead": {
+                "name": "Lochhead Packaging & Labeling",
+                "items": ["packaging_costs", "labeling_services", "bulk_100_gallon_pricing"]
+              },
+              "logistics_distribution": {
+                "name": "Logistics & Distribution Services",
+                "items": ["warehousing", "distribution", "shipping_fulfillment"]
+              }
+            }
+          }
+        }
+      },
+      
+      "make_produce": {
+        "name": "Make & Produce",
+        "description": "Cell agriculture lab-grown vanilla (Rheaplant service partnership)",
+        "production_target": "100% quality, high yield target through service provider",
+        "categories": {
+          "research_development": {
+            "name": "Research & Development Phase",
+            "subcategories": {
+              "rheaplant_rd_services": {
+                "name": "Rheaplant R&D Service Fees",
+                "items": ["vanilla_development_services", "leveraging_cacao_rice_success", "proof_of_concept"]
+              },
+              "substrate_materials": {
+                "name": "Substrate Materials for Development",
+                "items": ["sugar_feedstock", "growth_media_components", "development_supplies"]
+              },
+              "lab_resources": {
+                "name": "Lab Resources Service Costs",
+                "items": ["water_utilities", "energy_utilities", "lab_equipment_access"]
+              }
+            }
+          },
+          "operational_scaleup": {
+            "name": "Operational Scale-Up Phase",
+            "subcategories": {
+              "scaleup_services": {
+                "name": "Commercial-Scale Setup Services",
+                "items": ["commercial_production_setup", "scaling_transition", "infrastructure_services"]
+              },
+              "commercial_production": {
+                "name": "Commercial Production Service Packages",
+                "items": ["100_percent_quality_target", "minimum_volume_commitments", "service_agreements"]
+              }
+            }
+          },
+          "production_operations": {
+            "name": "Production Operations Phase",
+            "subcategories": {
+              "per_batch_services": {
+                "name": "Per-Batch Service Fees",
+                "items": ["high_yield_target_batches", "batch_processing_fees", "production_scaling"]
+              },
+              "technical_support": {
+                "name": "Technical Support Services",
+                "items": ["ongoing_technical_support", "quality_assurance", "process_optimization"]
+              },
+              "all_inclusive_services": {
+                "name": "All-Inclusive Service Pricing",
+                "items": ["materials_included", "utilities_included", "operations_included"]
+              }
+            }
+          }
+        }
+      }
+    },
+    
+    "supporting_operations": {
+      "name": "Supporting Operations (All Revenue Streams)",
+      "categories": {
+        "academic_research": {
+          "name": "Academic Research & Partnerships",
+          "subcategories": {
+            "consultation": {
+              "name": "Free Academic Consultation",
+              "items": ["wsu_expertise", "osu_expertise", "uf_expertise", "unpaid_consultation"]
+            },
+            "grant_funded": {
+              "name": "Grant-Funded Partnerships Only",
+              "items": ["food_innovation_center", "grant_applications", "funded_research_only"]
+            }
+          }
+        },
+        "marketing_sales": {
+          "name": "Marketing & Sales",
+          "subcategories": {
+            "pr_agencies": {
+              "name": "PR Agencies (Pacific Northwest)",
+              "items": ["pr_agency_rates", "digital_marketing", "brand_development"]
+            },
+            "packaging_branding": {
+              "name": "Packaging & Branding Design",
+              "items": ["package_design", "branding_design", "label_design"]
+            },
+            "b2b_sales": {
+              "name": "B2B Sales Costs",
+              "items": ["sales_materials", "trade_shows", "customer_acquisition"]
+            }
+          }
+        },
+        "regulatory_compliance": {
+          "name": "Regulatory & Compliance",
+          "subcategories": {
+            "fda_registration": {
+              "name": "FDA Food Facility Registration",
+              "items": ["registration_costs", "compliance_requirements", "facility_requirements"]
+            },
+            "usda_organic": {
+              "name": "USDA Organic Certification",
+              "items": ["certification_costs", "annual_fees", "inspection_fees", "cost_share_program"]
+            },
+            "state_licensing": {
+              "name": "Oregon State Business Licenses",
+              "items": ["cultivation_licenses", "processing_licenses", "business_permits"]
+            },
+            "insurance": {
+              "name": "Business Insurance",
+              "items": ["product_liability", "general_liability", "property_insurance"]
+            },
+            "professional_services": {
+              "name": "Legal & Accounting Services",
+              "items": ["legal_services", "accounting_services", "regulatory_consulting"]
+            }
+          }
+        },
+        "general_business": {
+          "name": "General Business Operations",
+          "subcategories": {
+            "virtual_office": {
+              "name": "Virtual Office/Administrative",
+              "items": ["virtual_office_costs", "administrative_services", "communication_tools"]
+            },
+            "technology": {
+              "name": "Software & Technology",
+              "items": ["cloud_services", "data_centers", "software_subscriptions"]
+            },
+            "transportation_logistics": {
+              "name": "Transportation & Logistics",
+              "items": ["sustainable_packaging", "distribution", "shipping"]
+            },
+            "founder_travel": {
+              "name": "Founder Travel Costs",
+              "items": ["seattle_portland_train", "florida_airfare", "hawaii_airfare", "accommodations", "meals_transport"]
+            }
+          }
+        }
+      }
+    },
+    
+    "data_attributes": {
+      "required_fields": [
+        "item_id",
+        "item_name", 
+        "category",
+        "subcategory",
+        "specifications",
+        "pricing",
+        "source_primary",
+        "confidence",
+        "date_collected"
+      ],
+      "pricing_structure": {
+        "unit_cost": "number",
+        "unit": "string",
+        "volume_discounts": "array",
+        "total_cost_5000sqft": "number",
+        "currency": "USD"
+      },
+      "confidence_levels": [
+        "LOW",
+        "MEDIUM", 
+        "HIGH",
+        "VERIFIED"
+      ],
+      "source_requirements": {
+        "tier_1": "Direct from supplier (preferred)",
+        "tier_2": "Industry sources (acceptable)",
+        "tier_3": "Indirect sources (use with caution)"
+      }
+    }
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "database_schema": {
+    "version": "1.0",
+    "created_date": "2024-12-30",
+    "description": "Terra35 Vanilla Operations Cost Analysis - JSON Database Schema",
+    "type": "document_database",
+    
+    "collections": {
+      "revenue_streams": {
+        "description": "Revenue streams (Grow & Produce, Partner & Produce, Make & Produce)",
+        "schema": {
+          "id": {"type": "string", "required": true},
+          "name": {"type": "string", "required": true},
+          "code": {"type": "string", "required": true},
+          "description": {"type": "string", "required": true},
+          "production_target": {"type": "string", "required": false},
+          "created_at": {"type": "timestamp", "default": "current_timestamp"}
+        },
+        "indexes": ["code"],
+        "unique_fields": ["name", "code"]
+      },
+      
+      "cost_categories": {
+        "description": "Cost categories within each revenue stream",
+        "schema": {
+          "id": {"type": "string", "required": true},
+          "revenue_stream_id": {"type": "string", "required": true, "references": "revenue_streams.id"},
+          "name": {"type": "string", "required": true},
+          "code": {"type": "string", "required": true},
+          "description": {"type": "string", "required": false},
+          "parent_category_id": {"type": "string", "required": false, "references": "cost_categories.id"},
+          "created_at": {"type": "timestamp", "default": "current_timestamp"}
+        },
+        "indexes": ["revenue_stream_id", "code", "parent_category_id"],
+        "unique_fields": ["revenue_stream_id+code"]
+      },
+      
+      "cost_items": {
+        "description": "Main cost items with specifications",
+        "schema": {
+          "id": {"type": "string", "required": true},
+          "item_id": {"type": "string", "required": true},
+          "item_name": {"type": "string", "required": true},
+          "category_id": {"type": "string", "required": true, "references": "cost_categories.id"},
+          "specifications": {"type": "object", "required": false},
+          "notes": {"type": "string", "required": false},
+          "status": {"type": "string", "default": "active", "enum": ["active", "deprecated", "pending"]},
+          "created_at": {"type": "timestamp", "default": "current_timestamp"},
+          "updated_at": {"type": "timestamp", "default": "current_timestamp"}
+        },
+        "indexes": ["item_id", "category_id", "status"],
+        "unique_fields": ["item_id"]
+      },
+      
+      "cost_pricing": {
+        "description": "Pricing data with historical tracking",
+        "schema": {
+          "id": {"type": "string", "required": true},
+          "cost_item_id": {"type": "string", "required": true, "references": "cost_items.id"},
+          "unit_cost": {"type": "number", "required": true, "precision": 2},
+          "unit": {"type": "string", "required": true},
+          "currency": {"type": "string", "default": "USD"},
+          "effective_date": {"type": "date", "required": true},
+          "volume_tier": {"type": "string", "required": false},
+          "total_cost_5000sqft": {"type": "number", "required": false, "precision": 2},
+          "confidence_level": {"type": "string", "required": true, "enum": ["LOW", "MEDIUM", "HIGH", "VERIFIED"]},
+          "created_at": {"type": "timestamp", "default": "current_timestamp"}
+        },
+        "indexes": ["cost_item_id", "effective_date", "confidence_level"]
+      },
+      
+      "volume_discounts": {
+        "description": "Volume discount structures",
+        "schema": {
+          "id": {"type": "string", "required": true},
+          "cost_item_id": {"type": "string", "required": true, "references": "cost_items.id"},
+          "quantity_min": {"type": "number", "required": false},
+          "quantity_max": {"type": "number", "required": false},
+          "quantity_unit": {"type": "string", "required": false},
+          "discount_price": {"type": "number", "required": true, "precision": 2},
+          "discount_percentage": {"type": "number", "required": false, "precision": 2},
+          "effective_date": {"type": "date", "required": true},
+          "created_at": {"type": "timestamp", "default": "current_timestamp"}
+        },
+        "indexes": ["cost_item_id", "effective_date"]
+      },
+      
+      "sources": {
+        "description": "Source companies and suppliers",
+        "schema": {
+          "id": {"type": "string", "required": true},
+          "company_name": {"type": "string", "required": true},
+          "company_type": {"type": "string", "required": false},
+          "website_url": {"type": "string", "required": false},
+          "contact_info": {"type": "object", "required": false},
+          "tier": {"type": "number", "required": true, "min": 1, "max": 3},
+          "is_active": {"type": "boolean", "default": true},
+          "created_at": {"type": "timestamp", "default": "current_timestamp"}
+        },
+        "indexes": ["company_name", "tier", "is_active"]
+      },
+      
+      "source_references": {
+        "description": "Source references for each cost data point",
+        "schema": {
+          "id": {"type": "string", "required": true},
+          "cost_pricing_id": {"type": "string", "required": true, "references": "cost_pricing.id"},
+          "source_id": {"type": "string", "required": true, "references": "sources.id"},
+          "reference_type": {"type": "string", "required": true, "enum": ["primary", "validation", "comparison"]},
+          "source_url": {"type": "string", "required": true},
+          "product_code": {"type": "string", "required": false},
+          "quote_number": {"type": "string", "required": false},
+          "date_accessed": {"type": "date", "required": true},
+          "screenshot_path": {"type": "string", "required": false},
+          "notes": {"type": "string", "required": false},
+          "created_at": {"type": "timestamp", "default": "current_timestamp"}
+        },
+        "indexes": ["cost_pricing_id", "source_id", "reference_type", "date_accessed"]
+      },
+      
+      "validation_rules": {
+        "description": "Data validation rules and checks",
+        "schema": {
+          "id": {"type": "string", "required": true},
+          "rule_name": {"type": "string", "required": true},
+          "rule_type": {"type": "string", "required": true},
+          "rule_parameters": {"type": "object", "required": false},
+          "applies_to_category": {"type": "string", "required": false, "references": "cost_categories.id"},
+          "is_active": {"type": "boolean", "default": true},
+          "created_at": {"type": "timestamp", "default": "current_timestamp"}
+        },
+        "indexes": ["rule_name", "rule_type", "is_active"],
+        "unique_fields": ["rule_name"]
+      },
+      
+      "validation_results": {
+        "description": "Validation results log",
+        "schema": {
+          "id": {"type": "string", "required": true},
+          "cost_pricing_id": {"type": "string", "required": true, "references": "cost_pricing.id"},
+          "validation_rule_id": {"type": "string", "required": true, "references": "validation_rules.id"},
+          "passed": {"type": "boolean", "required": true},
+          "failure_reason": {"type": "string", "required": false},
+          "validated_at": {"type": "timestamp", "default": "current_timestamp"}
+        },
+        "indexes": ["cost_pricing_id", "validation_rule_id", "validated_at"]
+      },
+      
+      "collection_sessions": {
+        "description": "Track data collection sessions and progress",
+        "schema": {
+          "id": {"type": "string", "required": true},
+          "session_name": {"type": "string", "required": true},
+          "milestone": {"type": "string", "required": false},
+          "start_time": {"type": "timestamp", "default": "current_timestamp"},
+          "end_time": {"type": "timestamp", "required": false},
+          "items_collected": {"type": "number", "default": 0},
+          "items_validated": {"type": "number", "default": 0},
+          "status": {"type": "string", "default": "in_progress", "enum": ["in_progress", "completed", "failed"]},
+          "notes": {"type": "string", "required": false}
+        },
+        "indexes": ["session_name", "milestone", "status", "start_time"]
+      },
+      
+      "collection_log": {
+        "description": "Log individual data collection activities",
+        "schema": {
+          "id": {"type": "string", "required": true},
+          "session_id": {"type": "string", "required": false, "references": "collection_sessions.id"},
+          "cost_item_id": {"type": "string", "required": true, "references": "cost_items.id"},
+          "action_type": {"type": "string", "required": true, "enum": ["created", "updated", "validated", "deprecated"]},
+          "previous_values": {"type": "object", "required": false},
+          "new_values": {"type": "object", "required": false},
+          "collector_notes": {"type": "string", "required": false},
+          "created_at": {"type": "timestamp", "default": "current_timestamp"}
+        },
+        "indexes": ["session_id", "cost_item_id", "action_type", "created_at"]
+      }
+    },
+    
+    "initial_data": {
+      "revenue_streams": [
+        {
+          "id": "grow_produce",
+          "name": "Grow & Produce",
+          "code": "grow_produce",
+          "description": "Indoor greenhouse vanilla cultivation (5000 sq ft, Oregon City, 85°F climate control)",
+          "production_target": "150 gallons Year 1 extract, 400 gallons total products"
+        },
+        {
+          "id": "partner_produce",
+          "name": "Partner & Produce",
+          "code": "partner_produce",
+          "description": "White label extract production via processing partners (100+ gallon bulk orders)",
+          "production_target": "Outsourced processing with Loran/Lorann, Cooks, Lochhead"
+        },
+        {
+          "id": "make_produce",
+          "name": "Make & Produce",
+          "code": "make_produce",
+          "description": "Cell agriculture lab-grown vanilla (Rheaplant service partnership)",
+          "production_target": "100% quality, high yield target through service provider"
+        },
+        {
+          "id": "supporting_ops",
+          "name": "Supporting Operations",
+          "code": "supporting_ops",
+          "description": "Shared costs across all revenue streams",
+          "production_target": "Regulatory, marketing, academic research, general business operations"
+        }
+      ],
+      "validation_rules": [
+        {
+          "id": "cost_range_check",
+          "rule_name": "cost_range_check",
+          "rule_type": "range_check",
+          "rule_parameters": {
+            "min_cost": 0.01,
+            "max_cost": 1000000,
+            "currency": "USD"
+          }
+        },
+        {
+          "id": "source_required",
+          "rule_name": "source_required",
+          "rule_type": "source_required",
+          "rule_parameters": {
+            "minimum_sources": 1,
+            "prefer_tier_1": true
+          }
+        },
+        {
+          "id": "data_freshness",
+          "rule_name": "data_freshness",
+          "rule_type": "freshness",
+          "rule_parameters": {
+            "max_age_days": 365,
+            "prefer_age_days": 90
+          }
+        },
+        {
+          "id": "confidence_minimum",
+          "rule_name": "confidence_minimum",
+          "rule_type": "confidence_check",
+          "rule_parameters": {
+            "minimum_level": "MEDIUM"
+          }
+        }
+      ]
+    },
+    
+    "validation_constraints": {
+      "cost_pricing": {
+        "unit_cost_positive": "unit_cost > 0",
+        "confidence_level_valid": "confidence_level IN ['LOW', 'MEDIUM', 'HIGH', 'VERIFIED']",
+        "effective_date_reasonable": "effective_date >= '2020-01-01' AND effective_date <= CURRENT_DATE + 30"
+      },
+      "source_references": {
+        "url_format": "source_url LIKE 'http%'",
+        "access_date_reasonable": "date_accessed >= '2020-01-01' AND date_accessed <= CURRENT_DATE"
+      }
+    },
+    
+    "query_patterns": {
+      "current_pricing": {
+        "description": "Get current active pricing with source information",
+        "filter": "status = 'active'",
+        "sort": "effective_date DESC",
+        "group_by": "item_id",
+        "limit": "latest per item"
+      },
+      "cost_summary": {
+        "description": "Cost summary by revenue stream and category",
+        "aggregate": ["COUNT", "AVG", "SUM", "MIN", "MAX"],
+        "group_by": ["revenue_stream", "category"]
+      },
+      "data_quality": {
+        "description": "Data quality metrics",
+        "metrics": ["verification_rate", "source_coverage", "confidence_distribution"]
+      }
+    }
+  }
+}
