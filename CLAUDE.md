@@ -120,6 +120,38 @@ When collecting any cost data, follow this sequence:
 
 </reasoning_steps>
 
+## <database_backup_protocol>
+
+### 🚨 MANDATORY DATABASE BACKUP PROTOCOL 🚨
+
+**CRITICAL**: After completion of each PLAN.md task, ALWAYS perform database backup and commit.
+
+**Database File Locations**:
+- **Main Database**: `data/costs/vanilla_costs.db`
+- **Backup Database**: `data/costs/vanilla_costs_backup.db`
+
+**Required Steps After Each Task Completion**:
+1. **Copy Database**: `cp data/costs/vanilla_costs.db data/costs/vanilla_costs_backup.db`
+2. **Stage Both Files**: `git add data/costs/vanilla_costs.db data/costs/vanilla_costs_backup.db`
+3. **Commit with Task Reference**: Include task number and brief description
+4. **Verify Backup**: Ensure both .db files are committed to git history
+
+**Example Command Sequence**:
+```bash
+# Complete task research and update PLAN.md
+cp data/costs/vanilla_costs.db data/costs/vanilla_costs_backup.db
+git add data/costs/vanilla_costs.db data/costs/vanilla_costs_backup.db PLAN.md
+git commit -m "Complete Task 2.X with database backup"
+```
+
+**Why This Protocol Exists**:
+- Database contains real collected cost data that cannot be easily regenerated
+- Unit tests or development work could accidentally corrupt or delete database
+- Both main and backup ensure redundancy in git history
+- Task-by-task commits provide recovery points for any issues
+
+</database_backup_protocol>
+
 ## <working_with_plan>
 
 ### 🚨 MANDATORY SESSION START PROTOCOL 🚨
@@ -492,6 +524,33 @@ pytest --cov=scripts --cov-report=term-missing
 
 ## Progress Tracking
 
+### 🚨 MANDATORY: Commit Research Data After Each Task
+**CRITICAL PROTOCOL**: After completion of every PLAN.md task, ALWAYS commit the research documentation:
+
+```bash
+# After completing any PLAN.md task, ALWAYS run:
+git add data/[new_research_files].md
+git commit -m "Complete Task X.X: [brief description]
+
+- Task X.X completed with verified cost data
+- Research documented in [filename].md
+- All sources documented and validated
+- Ready for database population"
+```
+
+**Database Strategy**:
+- Database files (data/costs/) are in .gitignore due to size/change frequency
+- Primary value is in the research .md files which contain all verified costs and sources
+- Database can be regenerated from research documentation if needed
+- This approach provides full backup without large binary files in git
+
+**Why This Matters**:
+- Research documentation represents significant investigation value
+- All verified costs and sources are preserved in markdown format
+- Git history provides automatic research backup  
+- Task-by-task commits enable granular progress tracking
+- Documentation enables database recreation if corruption occurs
+
 ### Milestone Completion Criteria
 A milestone is ONLY complete when:
 1. All subtasks checked off
@@ -500,6 +559,7 @@ A milestone is ONLY complete when:
 4. Confidence levels assigned
 5. Reports generated
 6. PLAN.md updated
+7. **Research documentation committed to git with descriptive message**
 
 ### Red Flags Requiring Immediate Attention
 - Cost variance >50% between sources
