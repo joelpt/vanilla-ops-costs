@@ -237,8 +237,9 @@ grep -c "\$[0-9]" data/[task_research_file].md
 - ✅ **REMOVE numerical cost data** from .md files once transferred to database
 - ✅ **REMOVE source details** (URLs, pricing) once in sources/source_references tables  
 - ✅ **KEEP research context** in .md files (what is needed, why, specifications)
+- ✅ **KEEP interesting findings** and discoveries that inform decision-making
 - ✅ **DATABASE = SINGLE SOURCE OF TRUTH** for all cost figures and references
-- ✅ **.MD FILES = RESEARCH CONTEXT** only (requirements, analysis, decisions)
+- ✅ **.MD FILES = RESEARCH CONTEXT** only (requirements, analysis, decisions, insights)
 
 **MANDATORY POST-POPULATION CLEANUP**:
 1. Transfer all cost data to database

@@ -43,7 +43,6 @@ Thumbs.db
 
 # Project specific
 data/cache/
-data/costs/
 logs/
 *.tmp
 ~$*.pptx
