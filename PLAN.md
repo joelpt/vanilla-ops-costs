@@ -182,7 +182,7 @@ Create a data-driven cost model with verifiable sources for:
 
 ### Milestone 2: Grow & Produce Costs (Weeks 2-4)
 #### Infrastructure Costs
-- [ ] 2.1 Research greenhouse structures (FarmTek, GrowSpan, Stuppy)
+- [x] **COMPLETED** - 2.1 Research greenhouse structures (FarmTek, GrowSpan, Stuppy) (See: data/greenhouse_structures_commercial_research_2025.md)
 - [x] **COMPLETED** - 2.2 Price benching/racking systems (See: data/greenhouse_benching_research_2025.md)
 - [x] **COMPLETED** - 2.3 Investigate trellis systems for vanilla vines (See: data/vanilla_trellis_systems_research_2025.md)
 - [x] **COMPLETED** - 2.4 Cost irrigation/fertigation equipment (See: data/irrigation_fertigation_systems_research_2025.md)
@@ -190,20 +190,19 @@ Create a data-driven cost model with verifiable sources for:
 - [x] **COMPLETED** - 2.6 Price supplemental lighting if needed (See: data/vanilla_supplemental_lighting_research_2025.md)
 
 #### Curing Facility
-- [ ] 2.7 Research curing chamber systems (fermentation, sweating, drying)
-- [ ] 2.8 Price dehydration equipment for flavor development
-- [ ] 2.9 Cost temperature/humidity control for curing process
-- [ ] 2.10 Investigate packaging equipment for cured beans
+- [x] **COMPLETED** - 2.7 Research curing chamber systems (fermentation, sweating, drying) (See: data/vanilla_curing_chamber_systems_research_2025.md)
+- [x] **COMPLETED** - 2.8 Price dehydration equipment for flavor development (See: data/vanilla_dehydration_equipment_flavor_development_2025.md)
+- [x] **COMPLETED** - 2.9 Cost temperature/humidity control for curing process (See: data/temperature_humidity_control_curing_systems_2025.md)
+- [x] **COMPLETED** - 2.10 Investigate packaging equipment for cured beans (See: data/vanilla_packaging_equipment_research_2025.md)
 
 #### Extraction Facility (Self-Owned)
-- [ ] 2.11 Research extraction equipment (ethanol and water-based methods only, no CO2 extraction)
-- [ ] 2.12 Price distillation and concentration equipment for ethanol/water extraction
-- [ ] 2.13 Cost extraction facility infrastructure requirements for ethanol/water methods
-- [ ] 2.14 Investigate ethanol recovery systems (no CO2 solvent recovery needed)
-- [ ] 2.15 Price quality control and testing equipment for ethanol/water-based extracts
+- [x] **COMPLETED** - 2.11 Research extraction equipment (ethanol and water-based methods only, no CO2 extraction) (See: data/vanilla_extraction_equipment_ethanol_water_2025.md)
+- [x] **COMPLETED** - 2.12 Price distillation and concentration equipment for ethanol/water extraction (See: data/vanilla_distillation_concentration_equipment_2025.md)
+- [x] **COMPLETED** - 2.13 Research vanilla processing labor and operational costs (See: data/vanilla_processing_labor_operational_costs_2025.md)
+- [x] **COMPLETED** - 2.14 Calculate energy costs for greenhouse and processing operations (See: data/vanilla_energy_costs_greenhouse_processing_2025.md)
+- [ ] 2.15 Research infrastructure requirements for ethanol/water extraction facilities
 
 #### Operational Costs
-- [ ] 2.16 Calculate electricity usage and rates (Oregon City municipal utilities for 85°F climate control)
 - [ ] 2.17 Estimate water consumption and costs (Oregon City rates with near 100% recycling targets)
 - [ ] 2.18 Research fertilizer/nutrient programs (including earthworm castings, contractor-applied)
 - [ ] 2.19 Price growing media/substrate for traditional bench system
