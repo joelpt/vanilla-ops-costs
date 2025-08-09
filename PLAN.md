@@ -200,13 +200,13 @@ Create a data-driven cost model with verifiable sources for:
 - [x] **COMPLETED** - 2.12 Price distillation and concentration equipment for ethanol/water extraction (See: data/vanilla_distillation_concentration_equipment_2025.md)
 - [x] **COMPLETED** - 2.13 Research vanilla processing labor and operational costs (See: data/vanilla_processing_labor_operational_costs_2025.md)
 - [x] **COMPLETED** - 2.14 Calculate energy costs for greenhouse and processing operations (See: data/vanilla_energy_costs_greenhouse_processing_2025.md)
-- [ ] 2.15 Research infrastructure requirements for ethanol/water extraction facilities
+- [x] **COMPLETED** - 2.15 Research infrastructure requirements for ethanol/water extraction facilities (See: data/vanilla_extraction_facility_infrastructure_2025.md)
 
 #### Operational Costs
-- [ ] 2.17 Estimate water consumption and costs (Oregon City rates with near 100% recycling targets)
-- [ ] 2.18 Research fertilizer/nutrient programs (including earthworm castings, contractor-applied)
-- [ ] 2.19 Price growing media/substrate for traditional bench system
-- [ ] 2.20 Estimate contractor labor requirements and costs (no full-time employees)
+- [x] **COMPLETED** - 2.16 Estimate water consumption and costs (Oregon City rates with near 100% recycling targets) (See: data/vanilla_water_consumption_costs_oregon_city_2025.md)
+- [ ] 2.17 Research fertilizer/nutrient programs (including earthworm castings, contractor-applied)
+- [ ] 2.18 Price growing media/substrate for traditional bench system
+- [ ] 2.19 Estimate contractor labor requirements and costs (no full-time employees)
 
 #### Circular Economy Systems (Per Slide 9, 12)
 - [ ] 2.21 Research water recycling systems for near 100% water recovery
