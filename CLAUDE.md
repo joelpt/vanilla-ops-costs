@@ -91,10 +91,20 @@ When collecting any cost data, follow this sequence:
 
 ## <working_with_plan>
 
+### 🚨 MANDATORY SESSION START PROTOCOL 🚨
+
+**EVERY WORKING SESSION MUST BEGIN WITH:**
+1. **Read PLAN.md completely** - Always start by reading the full PLAN.md file
+2. **Understand current project state** - Check milestone progress and task status
+3. **Identify today's priorities** - Select 3-5 specific tasks to focus on
+4. **Update PLAN.md throughout work** - Mark tasks complete, add blockers, update questions
+
+**CRITICAL**: PLAN.md is the living document that drives this entire project. It MUST be kept current and referenced constantly.
+
 ### Daily Workflow Sequence
 
 <session_start>
-1. Read PLAN.md current milestone status
+1. **MANDATORY: Read PLAN.md current milestone status and all open tasks**
 2. Identify today's specific tasks (maximum 3-5)
 3. Check Open Questions that might block progress
 4. Review yesterday's collected data for validation needs
@@ -102,18 +112,19 @@ When collecting any cost data, follow this sequence:
 </session_start>
 
 <during_work>
-- Update task status in PLAN.md immediately upon completion
-- Document sources in real-time (never wait)
+- **Update PLAN.md task status** immediately upon completion
+- **Document sources** in real-time (never wait)
+- **Update Open Questions** with new discoveries or blockers
 - Flag uncertainties with "NEEDS_VALIDATION" tag
 - Commit data every hour with descriptive messages
-- Add blockers to Open Questions immediately
+- **Keep PLAN.md synchronized** with actual work progress
 </during_work>
 
 <session_end>
-1. Update all task checkboxes in PLAN.md
-2. Add discovered questions to Open Questions
-3. Commit all collected data with sources
-4. Document tomorrow's priorities
+1. **Update all task checkboxes in PLAN.md** to reflect completed work
+2. **Add discovered questions to Open Questions** section
+3. Commit all collected data with sources AND updated PLAN.md
+4. Document tomorrow's priorities in PLAN.md if needed
 5. Note any vendor callbacks needed
 </session_end>
 
