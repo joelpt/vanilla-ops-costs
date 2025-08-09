@@ -61,24 +61,20 @@ Create a data-driven cost model with verifiable sources for:
 ### In Scope
 **Revenue Stream 1: Grow & Produce**
 - Greenhouse infrastructure (trellises, benches, irrigation, climate control)
-- Monthly utilities (electricity, water, HVAC)
+- Curing facility (fermentation chambers, dehydration equipment)
+- Extraction facility (self-owned processing equipment)
+- Monthly utilities (electricity, water, HVAC) including renewable energy options
 - Growing supplies (substrate, fertilizer, nutrients)
-- Vanilla-specific equipment (pollination tools, curing chambers)
-- Labor costs for cultivation and harvesting
+- Labor costs for cultivation, curing, and extraction
 
 **Revenue Stream 2: Partner & Produce**
 - Vanilla bean sourcing (multiple origins with price ranges)
-- Extraction equipment (purchase/lease options)
-- Processing supplies and consumables
-- Quality testing and certification
-- Partnership/licensing fees
+- Partner processing service fees (outsourced extraction)
 
-**Revenue Stream 3: Make & Produce**
-- Bioreactor systems and lab equipment
-- Cell culture media and growth factors
-- Clean room facility requirements
-- Lab technician salaries
-- R&D equipment and supplies
+**Revenue Stream 3: Make & Produce (Cell Agriculture Lab Partnership)**
+- Research & Development phase: Consulting fees, substrate/growth materials, lab resource costs
+- Operational scale-up phase: Partner lab equipment scaling costs, commercial-grade infrastructure
+- Production operations phase: Batch production costs, ongoing consulting fees, materials and resources
 
 **Supporting Operations**
 - Marketing, PR, and communications services
@@ -112,23 +108,25 @@ Create a data-driven cost model with verifiable sources for:
 5. **Greenhouse Design**: Vertical farming system or traditional benches?
 6. **Climate Control**: Target temperature/humidity ranges for energy calculations?
 7. **Curing Process**: Fermentation vs sun-drying method selection (impacts equipment costs)?
-8. **Cell Culture Scale**: Research-level or production-scale bioreactors?
+8. **Cell Agriculture Partnership**: Which lab partner and their existing capabilities/capacity?
 
 ### Partnership Structure
 9. **Bean Sourcing**: Direct from farms or through brokers?
-10. **Academic Partnerships**: Cost-sharing model with WSU/OSU/UF research?
-11. **Vanilla Vida Partnership**: Royalty structure costs per Slide 23?
-12. **Certification Timeline**: When to pursue organic certification?
+10. **Processing Partners**: Which extraction/co-packing facilities to partner with?
+11. **Cell Agriculture Lab**: Partnership terms and cost-sharing model for lab operations?
+12. **Academic Partnerships**: Cost-sharing model with WSU/OSU/UF research?
+13. **Vanilla Vida Partnership**: Royalty structure costs per Slide 23?
+14. **Certification Timeline**: When to pursue organic certification?
 
 ### Circular Economy Integration
-13. **Water Recycling**: What percentage of water to be recycled vs municipal supply?
-14. **Waste Revenue**: Which waste streams can generate revenue (cuttings, organic matter)?
-15. **Renewable Energy**: Solar/wind integration costs vs grid electricity?
+15. **Water Recycling**: What percentage of water to be recycled vs municipal supply?
+16. **Waste Revenue**: Which waste streams can generate revenue (cuttings, organic matter)?
+17. **Renewable Energy**: Solar/wind integration costs vs grid electricity?
 
 ### Financial Assumptions
-16. **Price Volatility**: How to handle 2024-2025 price fluctuations?
-17. **Volume Discounts**: What quantities trigger bulk pricing?
-18. **Seasonal Variations**: Account for seasonal utility rate changes?
+18. **Price Volatility**: How to handle 2024-2025 price fluctuations?
+19. **Volume Discounts**: What quantities trigger bulk pricing?
+20. **Seasonal Variations**: Account for seasonal utility rate changes?
 
 ## Task List
 
@@ -156,23 +154,34 @@ Create a data-driven cost model with verifiable sources for:
 - [ ] 2.9 Cost temperature/humidity control for curing process
 - [ ] 2.10 Investigate packaging equipment for cured beans
 
+#### Extraction Facility (Self-Owned)
+- [ ] 2.11 Research extraction equipment (CO2, ethanol, other methods)
+- [ ] 2.12 Price distillation and concentration equipment
+- [ ] 2.13 Cost extraction facility infrastructure requirements
+- [ ] 2.14 Investigate solvent recovery systems
+- [ ] 2.15 Price quality control and testing equipment for extracts
+
 #### Operational Costs
-- [ ] 2.11 Calculate electricity usage and rates (Oregon utilities)
-- [ ] 2.12 Estimate water consumption and costs
-- [ ] 2.13 Research fertilizer/nutrient programs (including earthworm castings per Slide 23)
-- [ ] 2.14 Price growing media/substrate
-- [ ] 2.15 Estimate labor requirements and costs
+- [ ] 2.16 Calculate electricity usage and rates (Oregon utilities)
+- [ ] 2.17 Estimate water consumption and costs
+- [ ] 2.18 Research fertilizer/nutrient programs (including earthworm castings per Slide 23)
+- [ ] 2.19 Price growing media/substrate
+- [ ] 2.20 Estimate labor requirements and costs
 
 #### Circular Economy Systems (Per Slide 9, 12)
-- [ ] 2.16 Research water recycling systems
-- [ ] 2.17 Price waste-to-revenue processing equipment
-- [ ] 2.18 Investigate renewable energy integration costs
-- [ ] 2.19 Cost organic waste recycling partnerships
+- [ ] 2.21 Research water recycling systems
+- [ ] 2.22 Price waste-to-revenue processing equipment
+- [ ] 2.23 Cost organic waste recycling partnerships
+
+#### Renewable Energy Options
+- [ ] 2.24 Research utility renewable energy premium costs (Oregon providers)
+- [ ] 2.25 Price on-site solar panel installation and maintenance
+- [ ] 2.26 Investigate wind energy options for facility location
+- [ ] 2.27 Calculate ROI for owned vs purchased renewable energy
 
 #### Vanilla-Specific Equipment
-- [ ] 2.20 Research pollination tools and supplies
-- [ ] 2.21 Price extraction apparatus for small-scale
-- [ ] 2.22 Cost quality testing equipment
+- [ ] 2.28 Research pollination tools and supplies
+- [ ] 2.29 Cost quality testing equipment for vanilla beans
 
 ### Milestone 3: Partner & Produce Costs (Weeks 3-4)
 #### Sourcing Costs
@@ -182,27 +191,34 @@ Create a data-driven cost model with verifiable sources for:
 - [ ] 3.4 Calculate shipping and import costs
 - [ ] 3.5 Research minimum order quantities
 
-#### Processing Costs
-- [ ] 3.6 Price commercial extraction equipment
-- [ ] 3.7 Research extraction facility requirements
-- [ ] 3.8 Calculate extraction supplies/solvents
-- [ ] 3.9 Estimate packaging costs
-- [ ] 3.10 Research co-packing options
+#### Processing Service Costs
+- [ ] 3.6 Research extraction service provider rates (per kg processed)
+- [ ] 3.7 Compare co-packing facility pricing models
+- [ ] 3.8 Estimate packaging and labeling service costs
+- [ ] 3.9 Calculate quality testing and certification fees
+- [ ] 3.10 Research logistics and distribution service costs
 
-### Milestone 4: Make & Produce Costs (Weeks 4-5)
-#### Lab Equipment
-- [ ] 4.1 Research bioreactor systems (50L to 500L)
-- [ ] 4.2 Price clean room/sterile facilities
-- [ ] 4.3 Investigate cell culture equipment
-- [ ] 4.4 Cost analytical instruments
-- [ ] 4.5 Research lab consumables
+### Milestone 4: Make & Produce Costs (Cell Agriculture Lab Partnership, Weeks 4-5)
+#### Research & Development Phase
+- [ ] 4.1 Research scientist consulting fees for vanilla cell culture development
+- [ ] 4.2 Calculate substrate costs (sugar, growth media components)
+- [ ] 4.3 Estimate lab resource costs (water, energy, utilities) for R&D scale
+- [ ] 4.4 Price small-scale bioreactor and equipment usage fees
+- [ ] 4.5 Research proof-of-concept development timeline and costs
 
-#### Operational Costs
-- [ ] 4.6 Calculate growth media costs
-- [ ] 4.7 Estimate cell line development/licensing
-- [ ] 4.8 Research lab technician salaries
-- [ ] 4.9 Calculate utilities for lab operations
-- [ ] 4.10 Estimate QA/QC costs
+#### Operational Scale-Up Phase
+- [ ] 4.6 Investigate partner lab equipment scaling requirements
+- [ ] 4.7 Calculate commercial-scale bioreactor system costs
+- [ ] 4.8 Estimate clean room facility expansion/upgrade costs
+- [ ] 4.9 Research analytical equipment for commercial production
+- [ ] 4.10 Price infrastructure development for scaled operations
+
+#### Production Operations Phase
+- [ ] 4.11 Calculate batch production service fees
+- [ ] 4.12 Estimate ongoing scientist/technical consulting costs
+- [ ] 4.13 Research substrate and growth materials at commercial scale
+- [ ] 4.14 Calculate utilities and resource costs for production batches
+- [ ] 4.15 Estimate quality control and testing per batch
 
 ### Milestone 5: Supporting Costs (Weeks 5-6)
 #### Academic Research & Partnerships (Per Slides 8, 10, 23)
@@ -211,31 +227,24 @@ Create a data-driven cost model with verifiable sources for:
 - [ ] 5.3 Estimate research collaboration fees
 - [ ] 5.4 Cost Food Innovation Center partnerships
 
-#### Nursery Operations (Per Slide 9 Year 2 plan)
-- [ ] 5.5 Research vanilla cutting production costs
-- [ ] 5.6 Price nursery infrastructure and equipment
-- [ ] 5.7 Estimate cutting sales revenue potential
-- [ ] 5.8 Cost propagation and growing systems
-
 #### Marketing & Sales
-- [ ] 5.9 Research PR agency rates (Pacific Northwest)
-- [ ] 5.10 Investigate trade show costs
-- [ ] 5.11 Calculate digital marketing budget
-- [ ] 5.12 Estimate packaging/branding design
-- [ ] 5.13 Research B2B sales costs
+- [ ] 5.5 Research PR agency rates (Pacific Northwest)
+- [ ] 5.6 Calculate digital marketing budget
+- [ ] 5.7 Estimate packaging/branding design
+- [ ] 5.8 Research B2B sales costs
 
 #### Regulatory & Compliance
-- [ ] 5.14 FDA food facility registration
-- [ ] 5.15 USDA Organic certification costs
-- [ ] 5.16 State business licenses
-- [ ] 5.17 Insurance quotes (liability, product)
-- [ ] 5.18 Legal and accounting services
+- [ ] 5.9 FDA food facility registration
+- [ ] 5.10 USDA Organic certification costs
+- [ ] 5.11 State business licenses
+- [ ] 5.12 Insurance quotes (liability, product)
+- [ ] 5.13 Legal and accounting services
 
 #### General Business
-- [ ] 5.19 Office/administrative costs
-- [ ] 5.20 Software and technology (cloud services, data centers per Slide 12)
-- [ ] 5.21 Transportation/logistics
-- [ ] 5.22 Contingency planning
+- [ ] 5.14 Virtual office/administrative costs (no physical office space)
+- [ ] 5.15 Software and technology (cloud services, data centers per Slide 12)
+- [ ] 5.16 Transportation/logistics and sustainable packaging across all revenue streams
+- [ ] 5.17 Contingency planning
 
 ### Milestone 6: Final Compilation (Weeks 6-7)
 #### Data Validation
