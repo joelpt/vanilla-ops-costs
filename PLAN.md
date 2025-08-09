@@ -106,24 +106,29 @@ Create a data-driven cost model with verifiable sources for:
 1. **Production Volume**: What is the target annual vanilla production for Year 1?
 2. **Quality Grade**: Are we targeting Grade A (gourmet) or Grade B (extract) vanilla?
 3. **Staffing Model**: Full-time employees vs contractors for operations?
-4. **Facility Location**: Specific city for accurate utility rates and labor costs?
+4. **Facility Location**: Specific city for accurate utility rates (Oregon City, Cascade Locks, Tri-Cities, Vancouver)?
 
 ### Technical Specifications
 5. **Greenhouse Design**: Vertical farming system or traditional benches?
 6. **Climate Control**: Target temperature/humidity ranges for energy calculations?
-7. **Extraction Method**: CO2, ethanol, or other extraction process?
+7. **Curing Process**: Fermentation vs sun-drying method selection (impacts equipment costs)?
 8. **Cell Culture Scale**: Research-level or production-scale bioreactors?
 
 ### Partnership Structure
 9. **Bean Sourcing**: Direct from farms or through brokers?
-10. **Co-packing**: Will Partner & Produce use third-party facilities?
-11. **Distribution**: Direct sales or through distributors?
+10. **Academic Partnerships**: Cost-sharing model with WSU/OSU/UF research?
+11. **Vanilla Vida Partnership**: Royalty structure costs per Slide 23?
 12. **Certification Timeline**: When to pursue organic certification?
 
+### Circular Economy Integration
+13. **Water Recycling**: What percentage of water to be recycled vs municipal supply?
+14. **Waste Revenue**: Which waste streams can generate revenue (cuttings, organic matter)?
+15. **Renewable Energy**: Solar/wind integration costs vs grid electricity?
+
 ### Financial Assumptions
-13. **Price Volatility**: How to handle 2024-2025 price fluctuations?
-14. **Volume Discounts**: What quantities trigger bulk pricing?
-15. **Seasonal Variations**: Account for seasonal utility rate changes?
+16. **Price Volatility**: How to handle 2024-2025 price fluctuations?
+17. **Volume Discounts**: What quantities trigger bulk pricing?
+18. **Seasonal Variations**: Account for seasonal utility rate changes?
 
 ## Task List
 
@@ -145,18 +150,29 @@ Create a data-driven cost model with verifiable sources for:
 - [ ] 2.5 Research climate control systems (HVAC, fans, shade cloth)
 - [ ] 2.6 Price supplemental lighting if needed
 
+#### Curing Facility
+- [ ] 2.7 Research curing chamber systems (fermentation, sweating, drying)
+- [ ] 2.8 Price dehydration equipment for flavor development
+- [ ] 2.9 Cost temperature/humidity control for curing process
+- [ ] 2.10 Investigate packaging equipment for cured beans
+
 #### Operational Costs
-- [ ] 2.7 Calculate electricity usage and rates (Oregon utilities)
-- [ ] 2.8 Estimate water consumption and costs
-- [ ] 2.9 Research fertilizer/nutrient programs
-- [ ] 2.10 Price growing media/substrate
-- [ ] 2.11 Estimate labor requirements and costs
+- [ ] 2.11 Calculate electricity usage and rates (Oregon utilities)
+- [ ] 2.12 Estimate water consumption and costs
+- [ ] 2.13 Research fertilizer/nutrient programs (including earthworm castings per Slide 23)
+- [ ] 2.14 Price growing media/substrate
+- [ ] 2.15 Estimate labor requirements and costs
+
+#### Circular Economy Systems (Per Slide 9, 12)
+- [ ] 2.16 Research water recycling systems
+- [ ] 2.17 Price waste-to-revenue processing equipment
+- [ ] 2.18 Investigate renewable energy integration costs
+- [ ] 2.19 Cost organic waste recycling partnerships
 
 #### Vanilla-Specific Equipment
-- [ ] 2.12 Research pollination tools and supplies
-- [ ] 2.13 Investigate curing equipment options
-- [ ] 2.14 Price extraction apparatus for small-scale
-- [ ] 2.15 Cost quality testing equipment
+- [ ] 2.20 Research pollination tools and supplies
+- [ ] 2.21 Price extraction apparatus for small-scale
+- [ ] 2.22 Cost quality testing equipment
 
 ### Milestone 3: Partner & Produce Costs (Weeks 3-4)
 #### Sourcing Costs
@@ -189,25 +205,37 @@ Create a data-driven cost model with verifiable sources for:
 - [ ] 4.10 Estimate QA/QC costs
 
 ### Milestone 5: Supporting Costs (Weeks 5-6)
+#### Academic Research & Partnerships (Per Slides 8, 10, 23)
+- [ ] 5.1 Research university partnership costs (WSU, OSU, UF)
+- [ ] 5.2 Price academic research facility requirements
+- [ ] 5.3 Estimate research collaboration fees
+- [ ] 5.4 Cost Food Innovation Center partnerships
+
+#### Nursery Operations (Per Slide 9 Year 2 plan)
+- [ ] 5.5 Research vanilla cutting production costs
+- [ ] 5.6 Price nursery infrastructure and equipment
+- [ ] 5.7 Estimate cutting sales revenue potential
+- [ ] 5.8 Cost propagation and growing systems
+
 #### Marketing & Sales
-- [ ] 5.1 Research PR agency rates (Pacific Northwest)
-- [ ] 5.2 Investigate trade show costs
-- [ ] 5.3 Calculate digital marketing budget
-- [ ] 5.4 Estimate packaging/branding design
-- [ ] 5.5 Research B2B sales costs
+- [ ] 5.9 Research PR agency rates (Pacific Northwest)
+- [ ] 5.10 Investigate trade show costs
+- [ ] 5.11 Calculate digital marketing budget
+- [ ] 5.12 Estimate packaging/branding design
+- [ ] 5.13 Research B2B sales costs
 
 #### Regulatory & Compliance
-- [ ] 5.6 FDA food facility registration
-- [ ] 5.7 USDA Organic certification costs
-- [ ] 5.8 State business licenses
-- [ ] 5.9 Insurance quotes (liability, product)
-- [ ] 5.10 Legal and accounting services
+- [ ] 5.14 FDA food facility registration
+- [ ] 5.15 USDA Organic certification costs
+- [ ] 5.16 State business licenses
+- [ ] 5.17 Insurance quotes (liability, product)
+- [ ] 5.18 Legal and accounting services
 
 #### General Business
-- [ ] 5.11 Office/administrative costs
-- [ ] 5.12 Software and technology
-- [ ] 5.13 Transportation/logistics
-- [ ] 5.14 Contingency planning
+- [ ] 5.19 Office/administrative costs
+- [ ] 5.20 Software and technology (cloud services, data centers per Slide 12)
+- [ ] 5.21 Transportation/logistics
+- [ ] 5.22 Contingency planning
 
 ### Milestone 6: Final Compilation (Weeks 6-7)
 #### Data Validation
