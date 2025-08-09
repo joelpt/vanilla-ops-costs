@@ -25,7 +25,7 @@ project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
 from scripts.constants import STATUS_ACTIVE
-from validation import DataValidator, ValidationLevel
+from scripts.validation.data_validator import DataValidator, ValidationLevel
 
 class ValidationRunner:
     """Command-line validation runner"""

@@ -186,8 +186,8 @@ Create a data-driven cost model with verifiable sources for:
 - [x] **COMPLETED** - 2.2 Price benching/racking systems (See: data/greenhouse_benching_research_2025.md)
 - [x] **COMPLETED** - 2.3 Investigate trellis systems for vanilla vines (See: data/vanilla_trellis_systems_research_2025.md)
 - [x] **COMPLETED** - 2.4 Cost irrigation/fertigation equipment (See: data/irrigation_fertigation_systems_research_2025.md)
-- [ ] 2.5 Research climate control systems (HVAC, fans, shade cloth)
-- [ ] 2.6 Price supplemental lighting if needed
+- [x] **COMPLETED** - 2.5 Research climate control systems (HVAC, fans, shade cloth) (See: data/greenhouse_climate_control_systems_research_2025.md)
+- [x] **COMPLETED** - 2.6 Price supplemental lighting if needed (See: data/vanilla_supplemental_lighting_research_2025.md)
 
 #### Curing Facility
 - [ ] 2.7 Research curing chamber systems (fermentation, sweating, drying)
