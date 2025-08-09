@@ -291,60 +291,37 @@ Create a data-driven cost model with verifiable sources for:
 - [ ] 5.21 Estimate accommodation costs for Florida/Hawaii provider meetings
 - [ ] 5.22 Calculate meal and ground transportation for business travel
 
-### Milestone 6: Market Analysis & Financial Modeling (Weeks 7-9)
+### Milestone 6: Static Website & Data Presentation (Weeks 7-8)
 
-*Strategic transition from cost data collection to business intelligence and investment analysis*
+*Create navigable static website presenting all collected cost data for human review and analysis*
 
-#### Phase A: Market Research Foundation (Tasks 6.1-6.10)
-**Primary Research Design & Execution**
-- [ ] 6.1 Design primary research surveys for vanilla end-users (food manufacturers, artisan bakers, specialty retailers)
-- [ ] 6.2 Identify and recruit interview subjects across target customer segments (minimum 15 qualified subjects)
-- [ ] 6.3 Conduct customer interviews and pricing sensitivity analysis (85% completion rate target)
-- [ ] 6.4 Survey vanilla suppliers for competitive intelligence
-- [ ] 6.5 Analyze primary research data and extract key market insights
+#### Data Organization & Validation
+- [ ] 6.1 Audit and consolidate all cost data from Milestones 2-5
+- [ ] 6.2 Validate data completeness and identify any gaps
+- [ ] 6.3 Organize data by revenue stream and cost category
+- [ ] 6.4 Create summary tables with cost ranges and sources
+- [ ] 6.5 Document data confidence levels and assumptions
 
-**Secondary Research & Competitive Analysis**
-- [ ] 6.6 Research vanilla market size and growth trends (IBISWorld, Euromonitor, trade associations)
-- [ ] 6.7 Analyze competitive landscape for direct-to-consumer vanilla sales
-- [ ] 6.8 Research contract manufacturing market for natural flavor extracts
-- [ ] 6.9 Investigate cellular agriculture competitive landscape and market projections
-- [ ] 6.10 Consolidate secondary research into market opportunity assessment
+#### Website Development
+- [ ] 6.6 Design website structure and navigation
+- [ ] 6.7 Create homepage with project overview and navigation
+- [ ] 6.8 Build cost data pages for each revenue stream
+- [ ] 6.9 Add drill-down capability for detailed cost breakdowns
+- [ ] 6.10 Implement search and filtering functionality
 
-#### Phase B: Financial Integration & Modeling (Tasks 6.11-6.25)
-**Data Consolidation & Validation**
-- [ ] 6.11 Audit and consolidate all cost data from Milestones 2-5 into master database (95% integration target)
-- [ ] 6.12 Validate cost data accuracy and identify gaps requiring additional research
-- [ ] 6.13 Develop pricing models based on market research insights
-- [ ] 6.14 Create pro forma income statements for each revenue stream (5-year projections)
-- [ ] 6.15 Build cash flow models incorporating seasonal patterns and working capital requirements
+#### Content Creation
+- [ ] 6.11 Generate executive summary of findings
+- [ ] 6.12 Create comparison tables across revenue streams
+- [ ] 6.13 Add data visualization charts and graphs
+- [ ] 6.14 Include source documentation and references
+- [ ] 6.15 Create methodology and assumptions documentation
 
-**Pro Forma Development & Analysis**
-- [ ] 6.16 Develop sensitivity analysis for key cost and revenue drivers
-- [ ] 6.17 Model different scale scenarios (conservative, aggressive, optimistic growth)
-- [ ] 6.18 Create competitive positioning analysis with pricing strategy implications
-- [ ] 6.19 Build return on investment calculations for each business model
-- [ ] 6.20 Integrate renewable energy and sustainability economics into financial models
-
-#### Phase C: Strategic Analysis & Recommendations (Tasks 6.21-6.25)
-**Portfolio Analysis & Risk Assessment**
-- [ ] 6.21 Portfolio analysis comparing risk/return profiles of three revenue streams
-- [ ] 6.22 Market entry strategy development for each business model
-- [ ] 6.23 Investment requirements analysis and funding strategy recommendations
-- [ ] 6.24 Risk assessment matrix with mitigation strategies
-- [ ] 6.25 Business case development with executive summary and recommendations
-
-#### Quality Control & Execution Framework
-**Validation Checkpoints**
-- Peer review after every 5 tasks
-- External validation for market research findings (industry expert review)
-- Financial model validation using sensitivity analysis and scenario testing
-- Cross-referencing all cost data against original source documentation
-
-**Success Metrics**
-- Primary research: Minimum 15 customer interviews, 85% survey completion rate
-- Secondary research: Coverage of all major vanilla market segments and competitive players
-- Financial modeling: 95% cost data integration from previous milestones, validated pro formas for all revenue streams
-- Strategic analysis: Actionable business recommendations with clear investment requirements and ROI projections
+#### Final Delivery
+- [ ] 6.16 Test website functionality and navigation
+- [ ] 6.17 Validate all links and data accuracy
+- [ ] 6.18 Generate offline backup (PDF reports)
+- [ ] 6.19 Create user guide for website navigation
+- [ ] 6.20 Package final deliverables
 
 ## Implementation Notes
 
@@ -402,10 +379,10 @@ Create a data-driven cost model with verifiable sources for:
   - Infrastructure, Curing, Extraction, Operational, and Circular Economy sections completed
   - Renewable Energy Options completed with comprehensive ROI analysis
   - Remaining: 2.28-2.29 Vanilla-specific equipment (pollination tools, quality testing)
-- **Milestone 6**: ✅ Comprehensive market analysis and financial modeling strategy developed
-  - 25-task implementation plan with market research, financial modeling, and strategic analysis phases
-  - Quality control framework and success metrics established
-  - Ready for execution following cost data collection completion
+- **Milestone 6**: ✅ Static website development plan created
+  - 20-task implementation plan for navigable cost data presentation website
+  - Organized data validation, website development, content creation, and delivery phases
+  - Focus on human-readable presentation of all collected cost data with drill-down capability
 
 ### Next Phase
 Continue Milestone 2 completion with remaining vanilla-specific equipment tasks, then proceed to Milestone 3 (Partner & Produce Costs)
