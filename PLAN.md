@@ -63,7 +63,7 @@ Create a data-driven cost model with verifiable sources for:
 - Greenhouse infrastructure (trellises, benches, irrigation, climate control)
 - Curing facility (fermentation chambers, dehydration equipment)
 - Extraction facility (self-owned processing equipment)
-- Monthly utilities (electricity, water, HVAC) including renewable energy options
+- Monthly utilities (electricity, water, HVAC) with renewable energy premium option
 - Growing supplies (substrate, fertilizer, nutrients)
 - Labor costs for cultivation, curing, and extraction
 
@@ -121,7 +121,7 @@ Create a data-driven cost model with verifiable sources for:
 ### Circular Economy Integration
 15. **Water Recycling**: What percentage of water to be recycled vs municipal supply?
 16. **Waste Revenue**: Which waste streams can generate revenue (cuttings, organic matter)?
-17. **Renewable Energy**: Solar/wind integration costs vs grid electricity?
+17. **Renewable Energy**: Premium costs for utility-sourced renewable energy?
 
 ### Financial Assumptions
 18. **Price Volatility**: How to handle 2024-2025 price fluctuations?
@@ -155,7 +155,7 @@ Create a data-driven cost model with verifiable sources for:
 - [ ] 2.10 Investigate packaging equipment for cured beans
 
 #### Extraction Facility (Self-Owned)
-- [ ] 2.11 Research extraction equipment (CO2, ethanol, other methods)
+- [ ] 2.11 Research extraction equipment (ethanol, water-based methods)
 - [ ] 2.12 Price distillation and concentration equipment
 - [ ] 2.13 Cost extraction facility infrastructure requirements
 - [ ] 2.14 Investigate solvent recovery systems
@@ -175,9 +175,7 @@ Create a data-driven cost model with verifiable sources for:
 
 #### Renewable Energy Options
 - [ ] 2.24 Research utility renewable energy premium costs (Oregon providers)
-- [ ] 2.25 Price on-site solar panel installation and maintenance
-- [ ] 2.26 Investigate wind energy options for facility location
-- [ ] 2.27 Calculate ROI for owned vs purchased renewable energy
+- [ ] 2.25 Calculate ROI for owned vs purchased renewable energy
 
 #### Vanilla-Specific Equipment
 - [ ] 2.28 Research pollination tools and supplies
@@ -245,6 +243,13 @@ Create a data-driven cost model with verifiable sources for:
 - [ ] 5.15 Software and technology (cloud services, data centers per Slide 12)
 - [ ] 5.16 Transportation/logistics and sustainable packaging across all revenue streams
 - [ ] 5.17 Contingency planning
+
+#### Founder Travel Costs
+- [ ] 5.18 Price Seattle-Portland Amtrak train travel (1-2x per quarter, 2 founders)
+- [ ] 5.19 Research airfare costs Seattle/Portland to Florida (1-2 trips annually, 2 people)
+- [ ] 5.20 Research airfare costs Seattle/Portland to Hawaii (1-2 trips annually, 2 people)
+- [ ] 5.21 Estimate accommodation costs for Florida/Hawaii provider meetings
+- [ ] 5.22 Calculate meal and ground transportation for business travel
 
 ### Milestone 6: Final Compilation (Weeks 6-7)
 #### Data Validation
