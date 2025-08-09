@@ -127,18 +127,21 @@ class CitationManager:
     def format_citation_string(self, format_template: str, data: Dict[str, Any]) -> str:
         """Format citation string using template and data"""
         try:
+            # Create a copy of data to avoid modifying the original
+            format_data = data.copy()
+            
             # Handle special formatting for dates
-            if 'date_accessed' in data:
-                date_str = data['date_accessed']
+            if 'date_accessed' in format_data:
+                date_str = format_data['date_accessed']
                 if isinstance(date_str, str) and len(date_str) == 10:  # YYYY-MM-DD format
                     try:
                         date_obj = datetime.strptime(date_str, '%Y-%m-%d')
-                        data['date_accessed'] = date_obj.strftime('%B %d, %Y')
+                        format_data['date_accessed'] = date_obj.strftime('%B %d, %Y')
                     except ValueError:
                         pass  # Keep original format if parsing fails
             
-            # Format the citation
-            formatted = format_template.format(**data)
+            # Format the citation using the copied data
+            formatted = format_template.format(**format_data)
             
             # Clean up any empty optional fields
             formatted = re.sub(r'\s*\[\]\s*', '', formatted)  # Remove empty brackets

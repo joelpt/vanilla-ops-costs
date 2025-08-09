@@ -172,7 +172,7 @@ class DataValidator:
             except Exception as e:
                 results.append(ValidationResult(
                     rule_name=rule_name,
-                    level=ValidationLevel.ERROR,
+                    level=ValidationLevel.CRITICAL,
                     message=f"Validation rule failed: {str(e)}",
                     field="validation_system"
                 ))
@@ -658,11 +658,18 @@ class DataValidator:
         
         return results
     
-    def save_validation_config(self, config: Optional[Dict[str, Any]] = None):
+    def save_validation_config(self, config: Optional[Dict[str, Any]] = None, path: Optional[str] = None):
         """Save validation configuration to file"""
         config_to_save = config or self.config
         
-        config_path = Path(self.config_path)
+        # Add timestamp if not present
+        if isinstance(config_to_save, dict):
+            config_to_save = config_to_save.copy()
+            if 'last_updated' not in config_to_save:
+                from datetime import datetime
+                config_to_save['last_updated'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        
+        config_path = Path(path or self.config_path)
         config_path.parent.mkdir(parents=True, exist_ok=True)
         
         with open(config_path, 'w') as f:
