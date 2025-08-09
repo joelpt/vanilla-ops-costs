@@ -152,6 +152,104 @@ git commit -m "Complete Task 2.X with database backup"
 
 </database_backup_protocol>
 
+## <CRITICAL_DATABASE_POPULATION_PROTOCOL>
+
+### 🚨🚨🚨 CRITICAL FAILURE PREVENTION: DATABASE POPULATION IS MANDATORY 🚨🚨🚨
+
+**ABSOLUTE REQUIREMENT**: A task is NOT complete until ALL collected data is systematically populated into the database.
+
+### 🚨 CRITICAL PROJECT FAILURE IDENTIFIED 🚨
+
+**WHAT WENT WRONG**: Milestone 2 was marked "complete" with 25 comprehensive research files but only 5 items in database. This represents a fundamental project failure that makes all research virtually worthless.
+
+### 🚨 MANDATORY TASK COMPLETION PROTOCOL 🚨
+
+**A TASK IS NOT COMPLETE UNTIL**:
+1. ✅ Research conducted and documented in .md files
+2. ✅ ALL cost data extracted and populated into database tables
+3. ✅ ALL sources populated with complete reference information
+4. ✅ ALL pricing populated with confidence levels and effective dates
+5. ✅ Database validation confirms comprehensive coverage
+6. ✅ Cross-check ensures no data left behind in research files
+
+### 🚨 ENFORCEMENT CHECKLIST - USE FOR EVERY TASK 🚨
+
+Before marking ANY task complete, MANDATORY verification:
+
+```bash
+# 1. Count items in database for this category
+sqlite3 data/costs/vanilla_costs.db "SELECT COUNT(*) FROM cost_items WHERE category_id = [relevant_category_id];"
+
+# 2. Verify sources are populated
+sqlite3 data/costs/vanilla_costs.db "SELECT COUNT(*) FROM sources;"
+
+# 3. Verify pricing data exists
+sqlite3 data/costs/vanilla_costs.db "SELECT COUNT(*) FROM cost_pricing;"
+
+# 4. Check for missing data by reviewing research files
+grep -c "\$[0-9]" data/[task_research_file].md
+
+# 5. Manual verification: Does database count match research findings count?
+```
+
+### 🚨 FAILURE MODES TO PREVENT 🚨
+
+**NEVER DO THIS**:
+- ❌ Mark task complete after only creating research .md files
+- ❌ Assume database population will happen "later"
+- ❌ Leave cost data trapped in unstructured markdown files
+- ❌ Skip systematic data extraction and validation
+- ❌ Move to next milestone with incomplete database population
+
+**ALWAYS DO THIS**:
+- ✅ Extract EVERY cost item from research into database
+- ✅ Populate ALL source references with complete metadata
+- ✅ Add confidence levels and effective dates to ALL pricing
+- ✅ Validate database completeness against research files
+- ✅ Cross-check that no cost data remains unstructured
+- ✅ **MINIMUM 1, IDEALLY 3 SOURCES** for each cost data point and assertion
+- ✅ **POPULATE ALL SOURCES** in database with complete reference information
+- ✅ **CROSS-VALIDATE** pricing across multiple sources for accuracy
+
+### 🚨 IMMEDIATE CORRECTIVE ACTION REQUIRED 🚨
+
+**For Current Milestone 2 Crisis**:
+1. **UNCHECK all Milestone 2 tasks** - they are NOT actually complete
+2. **Review all 25 research .md files** systematically 
+3. **Extract and populate ALL cost data** into database tables
+4. **Validate comprehensive coverage** before re-checking tasks
+5. **Implement this protocol** going forward to prevent recurrence
+
+### 🚨 SOURCE REFERENCE REQUIREMENTS 🚨
+
+**MANDATORY for ALL cost data points**:
+- **MINIMUM 1 SOURCE**: Every cost must have at least one verifiable source
+- **IDEALLY 3 SOURCES**: Cross-validate pricing across multiple suppliers  
+- **COMPLETE METADATA**: URL, access date, company, product code, quote details
+- **DATABASE POPULATION**: ALL sources must be populated in sources and source_references tables
+- **MILESTONE 6 REQUIREMENT**: Website must support drilling down to see individual source references for each data point
+
+### 🚨 DATA REDUNDANCY ELIMINATION PROTOCOL 🚨
+
+**CRITICAL: Avoid duplicate data storage between .md files and database**
+
+**AFTER DATABASE POPULATION**:
+- ✅ **REMOVE numerical cost data** from .md files once transferred to database
+- ✅ **REMOVE source details** (URLs, pricing) once in sources/source_references tables  
+- ✅ **KEEP research context** in .md files (what is needed, why, specifications)
+- ✅ **DATABASE = SINGLE SOURCE OF TRUTH** for all cost figures and references
+- ✅ **.MD FILES = RESEARCH CONTEXT** only (requirements, analysis, decisions)
+
+**MANDATORY POST-POPULATION CLEANUP**:
+1. Transfer all cost data to database
+2. Clean .md files to remove redundant numerical data
+3. Keep only research methodology, requirements, and decision rationale
+4. Database becomes the authoritative source for all cost information
+
+**This represents a critical process failure that MUST be corrected immediately before continuing.**
+
+</CRITICAL_DATABASE_POPULATION_PROTOCOL>
+
 ## <working_with_plan>
 
 ### 🚨 MANDATORY SESSION START PROTOCOL 🚨

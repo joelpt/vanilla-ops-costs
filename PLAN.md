@@ -182,44 +182,44 @@ Create a data-driven cost model with verifiable sources for:
 
 ### Milestone 2: Grow & Produce Costs (Weeks 2-4)
 #### Infrastructure Costs
-- [x] **COMPLETED** - 2.1 Research greenhouse structures (FarmTek, GrowSpan, Stuppy) (See: data/greenhouse_structures_commercial_research_2025.md)
-- [x] **COMPLETED** - 2.2 Price benching/racking systems (See: data/greenhouse_benching_research_2025.md)
-- [x] **COMPLETED** - 2.3 Investigate trellis systems for vanilla vines (See: data/vanilla_trellis_systems_research_2025.md)
-- [x] **COMPLETED** - 2.4 Cost irrigation/fertigation equipment (See: data/irrigation_fertigation_systems_research_2025.md)
-- [x] **COMPLETED** - 2.5 Research climate control systems (HVAC, fans, shade cloth) (See: data/greenhouse_climate_control_systems_research_2025.md)
-- [x] **COMPLETED** - 2.6 Price supplemental lighting if needed (See: data/vanilla_supplemental_lighting_research_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.1 Research greenhouse structures (FarmTek, GrowSpan, Stuppy) (See: data/greenhouse_structures_commercial_research_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.2 Price benching/racking systems (See: data/greenhouse_benching_research_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.3 Investigate trellis systems for vanilla vines (See: data/vanilla_trellis_systems_research_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.4 Cost irrigation/fertigation equipment (See: data/irrigation_fertigation_systems_research_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.5 Research climate control systems (HVAC, fans, shade cloth) (See: data/greenhouse_climate_control_systems_research_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.6 Price supplemental lighting if needed (See: data/vanilla_supplemental_lighting_research_2025.md)
 
 #### Curing Facility
-- [x] **COMPLETED** - 2.7 Research curing chamber systems (fermentation, sweating, drying) (See: data/vanilla_curing_chamber_systems_research_2025.md)
-- [x] **COMPLETED** - 2.8 Price dehydration equipment for flavor development (See: data/vanilla_dehydration_equipment_flavor_development_2025.md)
-- [x] **COMPLETED** - 2.9 Cost temperature/humidity control for curing process (See: data/temperature_humidity_control_curing_systems_2025.md)
-- [x] **COMPLETED** - 2.10 Investigate packaging equipment for cured beans (See: data/vanilla_packaging_equipment_research_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.7 Research curing chamber systems (fermentation, sweating, drying) (See: data/vanilla_curing_chamber_systems_research_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.8 Price dehydration equipment for flavor development (See: data/vanilla_dehydration_equipment_flavor_development_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.9 Cost temperature/humidity control for curing process (See: data/temperature_humidity_control_curing_systems_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.10 Investigate packaging equipment for cured beans (See: data/vanilla_packaging_equipment_research_2025.md)
 
 #### Extraction Facility (Self-Owned)
-- [x] **COMPLETED** - 2.11 Research extraction equipment (ethanol and water-based methods only, no CO2 extraction) (See: data/vanilla_extraction_equipment_ethanol_water_2025.md)
-- [x] **COMPLETED** - 2.12 Price distillation and concentration equipment for ethanol/water extraction (See: data/vanilla_distillation_concentration_equipment_2025.md)
-- [x] **COMPLETED** - 2.13 Research vanilla processing labor and operational costs (See: data/vanilla_processing_labor_operational_costs_2025.md)
-- [x] **COMPLETED** - 2.14 Calculate energy costs for greenhouse and processing operations (See: data/vanilla_energy_costs_greenhouse_processing_2025.md)
-- [x] **COMPLETED** - 2.15 Research infrastructure requirements for ethanol/water extraction facilities (See: data/vanilla_extraction_facility_infrastructure_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.11 Research extraction equipment (ethanol and water-based methods only, no CO2 extraction) (See: data/vanilla_extraction_equipment_ethanol_water_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.12 Price distillation and concentration equipment for ethanol/water extraction (See: data/vanilla_distillation_concentration_equipment_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.13 Research vanilla processing labor and operational costs (See: data/vanilla_processing_labor_operational_costs_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.14 Calculate energy costs for greenhouse and processing operations (See: data/vanilla_energy_costs_greenhouse_processing_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.15 Research infrastructure requirements for ethanol/water extraction facilities (See: data/vanilla_extraction_facility_infrastructure_2025.md)
 
 #### Operational Costs
-- [x] **COMPLETED** - 2.16 Estimate water consumption and costs (Oregon City rates with near 100% recycling targets) (See: data/vanilla_water_consumption_costs_oregon_city_2025.md)
-- [x] **COMPLETED** - 2.17 Research fertilizer/nutrient programs (including earthworm castings, contractor-applied) (See: data/vanilla_fertilizer_nutrient_programs_2025.md)
-- [x] **COMPLETED** - 2.18 Price growing media/substrate for traditional bench system (See: data/vanilla_growing_media_substrate_costs_2025.md)
-- [x] **COMPLETED** - 2.19 Estimate contractor labor requirements and costs (See: data/vanilla_contractor_labor_requirements_costs_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.16 Estimate water consumption and costs (Oregon City rates with near 100% recycling targets) (See: data/vanilla_water_consumption_costs_oregon_city_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.17 Research fertilizer/nutrient programs (including earthworm castings, contractor-applied) (See: data/vanilla_fertilizer_nutrient_programs_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.18 Price growing media/substrate for traditional bench system (See: data/vanilla_growing_media_substrate_costs_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.19 Estimate contractor labor requirements and costs (See: data/vanilla_contractor_labor_requirements_costs_2025.md)
 
 #### Circular Economy Systems (Per Slide 9, 12)
-- [x] **COMPLETED** - 2.21 Research water recycling systems for near 100% water recovery (See: data/vanilla_water_recycling_systems_research_2025.md)
-- [x] **COMPLETED** - 2.22 Price waste-to-revenue processing equipment for cuttings, organic matter, heat recovery (See: data/waste_to_revenue_processing_equipment_2025.md)
-- [x] **COMPLETED** - 2.23 Cost organic waste recycling partnerships (See: data/organic_waste_recycling_partnerships_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.21 Research water recycling systems for near 100% water recovery (See: data/vanilla_water_recycling_systems_research_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.22 Price waste-to-revenue processing equipment for cuttings, organic matter, heat recovery (See: data/waste_to_revenue_processing_equipment_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.23 Cost organic waste recycling partnerships (See: data/organic_waste_recycling_partnerships_2025.md)
 
 #### Renewable Energy Options
-- [x] **COMPLETED** - 2.24 Research Oregon City utility renewable energy premium costs (See: data/oregon_city_renewable_energy_premium_costs_2025.md)
-- [x] **COMPLETED** - 2.25 Calculate ROI for owned vs purchased renewable energy (See: data/owned_vs_purchased_renewable_energy_roi_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.24 Research Oregon City utility renewable energy premium costs (See: data/oregon_city_renewable_energy_premium_costs_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.25 Calculate ROI for owned vs purchased renewable energy (See: data/owned_vs_purchased_renewable_energy_roi_2025.md)
 
 #### Vanilla-Specific Equipment
-- [x] **COMPLETED** - 2.28 Research pollination tools and supplies for Grade A vanilla (See: data/vanilla_pollination_tools_supplies_2025.md)
-- [x] **COMPLETED** - 2.29 Cost quality testing equipment for Grade A vanilla beans (See: data/vanilla_quality_testing_equipment_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.28 Research pollination tools and supplies for Grade A vanilla (See: data/vanilla_pollination_tools_supplies_2025.md)
+- [ ] **DATABASE POPULATION REQUIRED** - 2.29 Cost quality testing equipment for Grade A vanilla beans (See: data/vanilla_quality_testing_equipment_2025.md)
 
 ### Milestone 3: Partner & Produce Costs (Weeks 4-5)
 #### Sourcing Costs
@@ -376,10 +376,10 @@ Create a data-driven cost model with verifiable sources for:
 ### Milestone Progress
 - **Milestone 0**: ✅ Pre-implementation research completed with comprehensive documentation
 - **Milestone 1**: ✅ Infrastructure setup completed with enhanced features
-- **Milestone 2**: ✅ Grow & Produce costs - ALL 27 TASKS COMPLETED (100% complete)
-  - Infrastructure, Curing, Extraction, Operational, and Circular Economy sections completed
-  - Renewable Energy Options completed with comprehensive ROI analysis
-  - Vanilla-specific equipment completed (pollination tools, quality testing)
+- **Milestone 2**: 🚨 CRITICAL ISSUE - Research complete but DATABASE POPULATION REQUIRED
+  - 25 comprehensive research files created with detailed cost data
+  - ONLY 5 items populated in database - MAJOR FAILURE requiring immediate correction
+  - All tasks marked as requiring database population before being truly complete
 - **Milestone 6**: ✅ Static website development plan created
   - 20-task implementation plan for navigable cost data presentation website
   - Organized data validation, website development, content creation, and delivery phases
