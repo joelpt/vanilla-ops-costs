@@ -390,6 +390,7 @@ Terra35 Research Team
 - Flag uncertainties for follow-up
 - Commit data frequently with clear messages
 - Keep running notes of decisions made
+- **Update .md files**: When findings impact other documents, update them immediately
 
 ### Session End Protocol
 - [ ] Update all task statuses in PLAN.md
@@ -397,6 +398,32 @@ Terra35 Research Team
 - [ ] Commit all data collected
 - [ ] Document blockers or issues
 - [ ] Note priorities for next session
+- [ ] **Review and update all relevant .md files** based on new findings and project evolution
+
+## Documentation Maintenance
+
+### 🚨 MANDATORY: Keep Documentation Current
+
+**ALWAYS update .md files when**:
+- New cost ranges discovered that impact existing estimates
+- Technical specifications change project requirements
+- Market conditions affect previous assumptions
+- Equipment capabilities discovered that change infrastructure needs
+- Key findings emerge that impact other project areas
+
+**Files requiring regular updates**:
+- `PLAN.md`: Task completion status and milestone progress
+- `CLAUDE.md`: Project memory, lessons learned, and success patterns
+- `README.md`: Project overview and current status
+- `PROJECT_STRUCTURE.md`: File organization and architecture updates
+- Research .md files: When findings supersede or enhance earlier research
+
+**Update triggers**:
+- After completing each milestone
+- When significant cost discoveries are made
+- When project scope or assumptions change
+- Before committing major work sessions
+- When dependencies between project areas are discovered
 
 ## Quality Assurance Checklist
 
@@ -528,6 +555,10 @@ A milestone is ONLY complete when:
 - **Database Schema**: Added unique constraints for data integrity after testing revealed potential issues
 - **Code Quality**: Completed systematic refactoring eliminating 145+ lines of duplicated code
 - **Testing Strategy**: Built comprehensive test suite (183 tests) ensuring system reliability
+- **Milestone 2 Progress**: Tasks 2.1-2.8 completed with comprehensive greenhouse infrastructure research
+- **Lighting Discovery**: Vanilla's low-light requirements (40-80 μmol/m²/s) reduce power needs 60% vs high-light crops
+- **Curing Systems**: King Son specialized system ($80k-165k) vs adaptable commercial alternatives ($18k-92k)
+- **Processing Scale**: 400kg minimum vanilla processing volume for economic viability established
 
 ### Lessons Learned
 - **Research Phase**: PowerPoint contained no specific humidity/temperature data - assumptions came from external sources
@@ -538,6 +569,10 @@ A milestone is ONLY complete when:
 - **Database Design**: Unique constraints essential early to prevent data integrity issues at scale
 - **Testing Strategy**: Comprehensive test coverage crucial for complex scraping and validation systems
 - **Constants Management**: Centralized constants prevent magic value proliferation in large codebases
+- **Vanilla-Specific Infrastructure**: Significant cost advantages due to low-light requirements vs traditional high-light crops
+- **Equipment Integration**: Climate control, lighting, and curing systems must work together in 85% humidity environment
+- **Commercial Pricing**: Wide cost ranges ($38-45/sq ft benching, $160k-634k lighting) require careful vendor selection
+- **Processing Economics**: Post-curing equipment costs ($18k-165k) justify only with minimum 400kg annual processing volume
 
 ### Useful Patterns Discovered
 - **Research-First Approach**: Comprehensive documentation critical for complex projects before implementation
