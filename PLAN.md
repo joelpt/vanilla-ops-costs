@@ -183,9 +183,9 @@ Create a data-driven cost model with verifiable sources for:
 ### Milestone 2: Grow & Produce Costs (Weeks 2-4)
 #### Infrastructure Costs
 - [ ] 2.1 Research greenhouse structures (FarmTek, GrowSpan, Stuppy)
-- [ ] 2.2 Price benching/racking systems
-- [ ] 2.3 Investigate trellis systems for vanilla vines
-- [ ] 2.4 Cost irrigation/fertigation equipment
+- [x] **COMPLETED** - 2.2 Price benching/racking systems (See: data/greenhouse_benching_research_2025.md)
+- [x] **COMPLETED** - 2.3 Investigate trellis systems for vanilla vines (See: data/vanilla_trellis_systems_research_2025.md)
+- [x] **COMPLETED** - 2.4 Cost irrigation/fertigation equipment (See: data/irrigation_fertigation_systems_research_2025.md)
 - [ ] 2.5 Research climate control systems (HVAC, fans, shade cloth)
 - [ ] 2.6 Price supplemental lighting if needed
 
