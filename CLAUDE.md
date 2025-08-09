@@ -10,16 +10,24 @@ This is a data collection and analysis project for Terra35's vanilla farming bus
 
 ### Python Environment
 ```bash
-# Install required dependencies
+# Install runtime dependencies
 pip install python-pptx requests beautifulsoup4 pandas sqlite3
 
-# Extract PowerPoint content for analysis
-python extract_pptx.py
+# Install testing dependencies
+pip install -r requirements-test.txt
 
-# Run data collection scripts (to be created)
-python scripts/collect_greenhouse_costs.py
-python scripts/collect_lab_costs.py
-python scripts/validate_data.py
+# Initialize database
+python scripts/init_database.py
+
+# Run scrapers
+python scripts/scrapers/farmtek_scraper.py
+
+# Run validation
+python scripts/validation/validation_runner.py --all
+
+# Run tests
+pytest
+pytest --cov=scripts  # With coverage report
 ```
 
 ### Project Management
@@ -30,8 +38,17 @@ grep -c "\[x\]" PLAN.md
 # Find incomplete tasks  
 grep "\[ \]" PLAN.md
 
-# Validate all collected data has sources
-python scripts/validate_sources.py
+# Run comprehensive test suite
+pytest -v --tb=short
+
+# Run validation on database
+python scripts/validation/validation_runner.py --all --report validation_report.json
+
+# Test database functionality
+python scripts/init_database.py --db-path data/test.db
+
+# Clean up test files
+rm -f data/test.db
 ```
 
 ## Architecture
@@ -49,10 +66,24 @@ The project analyzes costs for distinct business models:
 - **Validation**: Cross-reference multiple sources, maintain audit trails
 
 ### File Organization
-- `PLAN.md`: Living document with 75+ specific tasks organized by milestone
-- `data/`: Cost database (JSON/SQLite) and source references
-- `scripts/`: Python scrapers and analysis tools
+- `PLAN.md`: Living document with 100+ specific tasks organized by milestone
+- `data/`: Cost database (SQLite with unique constraints), cached responses
+- `scripts/`: Python scrapers, validation framework, utilities (with constants.py)
+- `tests/`: Comprehensive test suite with 183 passing tests
+- `config/`: Database schema, validation rules, citation formats, taxonomy
 - `reports/`: Generated cost breakdowns and visualizations
+- `research/`: Milestone 0 research documentation and findings
+
+### Infrastructure Status (January 2025)
+**✅ COMPLETED INFRASTRUCTURE:**
+- **Database Schema**: SQLite with unique constraints and foreign key relationships
+- **Testing Framework**: 183 passing tests with pytest, comprehensive coverage
+- **Code Quality**: Systematic refactoring completed, SRP compliance achieved
+- **Validation Engine**: Configurable rules with multiple severity levels
+- **Citation Management**: Multi-format support (APA, MLA, Chicago, IEEE)
+- **Base Scraper Framework**: Caching, rate limiting, session management
+- **Constants Module**: Centralized magic values and configuration
+- **Git Repository**: Conventional commits, atomic changes, clean history
 
 ## <critical_rules>
 
@@ -398,6 +429,40 @@ Before marking any milestone complete:
 - Currency conversion
 - Geographic data
 
+## Testing Framework
+
+### Test Structure
+- **Unit Tests**: Individual component testing (scrapers, validators, utilities)
+- **Integration Tests**: Cross-component interactions and database operations
+- **Fixtures**: Shared test data and database setup in `conftest.py`
+- **Markers**: Categories like `unit`, `integration`, `slow`, `database`, `network`
+
+### Running Tests
+```bash
+# All tests
+pytest
+
+# With coverage
+pytest --cov=scripts --cov-report=html
+
+# Specific markers
+pytest -m unit          # Only unit tests
+pytest -m integration   # Only integration tests
+pytest -m database      # Tests requiring database
+
+# Verbose output
+pytest -v --tb=short
+
+# Generate coverage report
+pytest --cov=scripts --cov-report=term-missing
+```
+
+### Test Configuration
+- **pytest.ini**: Main configuration with markers and filter warnings
+- **requirements-test.txt**: Testing dependencies including faker, factory-boy
+- **Coverage Target**: Maintain high coverage across all modules
+- **Test Data**: Use fixtures for consistent, isolated test environments
+
 ## Progress Tracking
 
 ### Milestone Completion Criteria
@@ -455,23 +520,34 @@ A milestone is ONLY complete when:
 ## Project Memory
 
 ### Key Decisions Made
-- Milestone 0 completed: All 5 critical research tasks finished with comprehensive documentation
-- Production targets established: 150 gallons Year 1 extract, 400 gallons total products
-- Climate validation: 85% humidity optimal, 80-82°F temperature recommended
-- Equipment needs: 150L extraction system + paste production capability
-- Ready for Milestone 1: Infrastructure setup and systematic cost collection
+- **Milestone 0 Completed**: All 5 critical research tasks finished with comprehensive documentation
+- **Milestone 1 Completed**: Full infrastructure setup with enhanced features beyond original scope
+- **Production targets established**: 150 gallons Year 1 extract, 400 gallons total products  
+- **Climate validation**: 85% humidity optimal, 80-82°F temperature recommended
+- **Equipment needs**: 150L extraction system + paste production capability
+- **Database Schema**: Added unique constraints for data integrity after testing revealed potential issues
+- **Code Quality**: Completed systematic refactoring eliminating 145+ lines of duplicated code
+- **Testing Strategy**: Built comprehensive test suite (183 tests) ensuring system reliability
 
 ### Lessons Learned
-- PowerPoint contained no specific humidity/temperature data - assumptions came from external sources
-- Conservative production targets essential for first-year operations due to 6-12 month aging requirements
-- USDA organic certification requires 36-month transition period - major timeline consideration
-- Mid-range vanilla operations typically operate in 500-5,000 gallon annual range
+- **Research Phase**: PowerPoint contained no specific humidity/temperature data - assumptions came from external sources
+- **Production Planning**: Conservative production targets essential for first-year operations due to 6-12 month aging requirements
+- **Regulatory**: USDA organic certification requires 36-month transition period - major timeline consideration
+- **Industry Scale**: Mid-range vanilla operations typically operate in 500-5,000 gallon annual range
+- **Code Quality**: Systematic refactoring prevents technical debt accumulation in data-intensive projects
+- **Database Design**: Unique constraints essential early to prevent data integrity issues at scale
+- **Testing Strategy**: Comprehensive test coverage crucial for complex scraping and validation systems
+- **Constants Management**: Centralized constants prevent magic value proliferation in large codebases
 
 ### Useful Patterns Discovered
-- Research-first approach with comprehensive documentation critical for complex projects
-- Multiple research documents with executive summary provides actionable intelligence
-- Climate requirements validation requires multiple authoritative horticultural sources
-- Industry benchmarking through established company analysis provides realistic scaling targets
+- **Research-First Approach**: Comprehensive documentation critical for complex projects before implementation
+- **Executive Summaries**: Multiple research documents with summary provides actionable intelligence
+- **Climate Validation**: Requires multiple authoritative horticultural sources for accuracy
+- **Industry Benchmarking**: Established company analysis provides realistic scaling targets
+- **Database Integrity**: Add constraints early, not after data collection begins
+- **Test-Driven Infrastructure**: Build test coverage alongside features for reliability
+- **Defensive Programming**: Copy data structures before modification to prevent side effects
+- **Single Responsibility Principle**: Extract helper methods early to maintain clean architecture
 
 ## Success Metrics Tracking
 
@@ -507,5 +583,5 @@ python scripts/update_sources.py
 
 *Remember: This is a data collection and analysis project. Every decision should be driven by the goal of delivering accurate, verifiable cost data for Terra35's financial modeling.*
 
-*Last Updated: [Current Date]*
-*Version: 1.0*
+*Last Updated: January 9, 2025*
+*Version: 1.2*
