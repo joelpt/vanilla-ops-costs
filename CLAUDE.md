@@ -941,3 +941,4 @@ python scripts/update_sources.py
 
 *Last Updated: January 9, 2025*
 *Version: 1.2*
+- CRITICAL: Every cost item / cost pricing entry in the db MUST be accompanied by 1+ source references!
