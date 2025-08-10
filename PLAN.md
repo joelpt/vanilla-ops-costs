@@ -180,46 +180,79 @@ Create a data-driven cost model with verifiable sources for:
   - ✅ Applied Single Responsibility Principle throughout codebase
   - ✅ Standardized error handling patterns
 
-### Milestone 2: Grow & Produce Costs (Weeks 2-4)
+### Milestone 2: Grow & Produce Costs (Weeks 2-4) ⚠️ CRITICAL VALIDATION REQUIRED
+
+**🚨 ALL TASKS REQUIRE COMPLETE RE-VALIDATION**: Database contains unverified data with malformed entries, markdown artifacts, and unconfirmed pricing. Every task must be comprehensively validated using the protocol in CLAUDE.md before being marked complete.
+
 #### Infrastructure Costs
-- [ ] **DATABASE POPULATION REQUIRED** - 2.1 Research greenhouse structures (FarmTek, GrowSpan, Stuppy) (See: data/greenhouse_structures_commercial_research_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.2 Price benching/racking systems (See: data/greenhouse_benching_research_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.3 Investigate trellis systems for vanilla vines (See: data/vanilla_trellis_systems_research_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.4 Cost irrigation/fertigation equipment (See: data/irrigation_fertigation_systems_research_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.5 Research climate control systems (HVAC, fans, shade cloth) (See: data/greenhouse_climate_control_systems_research_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.6 Price supplemental lighting if needed (See: data/vanilla_supplemental_lighting_research_2025.md)
+- [ ] **VALIDATION STARTED - CRITICAL ISSUES FOUND** - 2.1 Research greenhouse structures (FarmTek, GrowSpan, Stuppy) (See: data/greenhouse_structures_commercial_research_2025.md)
+  - Phase 1: 🔍 Source verification - MAJOR ISSUE: Original research file was missing, recreated with current findings
+  - Phase 2: ⚠️ Database reconciliation - CRITICAL: 4 entries have unverified pricing, no source references
+  - Phase 3: ✅ Research file cleanup - New documentation file created with validation status  
+  - Phase 4: 📋 Comprehensive documentation - Validation methodology documented, requires vendor quotes
+  - **NEXT ACTIONS**: Contact GrowSpan (877) 835-9996, Stuppy (800) 733-5025 for verified pricing
+- [x] **VALIDATION COMPLETED ✅** - 2.2 Price benching/racking systems (See: data/greenhouse_benching_research_2025.md)
+  - Phase 1: ✅ Source verification - BG Hydro and Gothic Arch pricing verified against current websites
+  - Phase 2: ✅ Database reconciliation - Item names corrected, confidence levels updated, malformed entries removed
+  - Phase 3: ✅ Research file status - Validation status added, sources confirmed current
+  - Phase 4: ✅ Documentation complete - Comprehensive validation documented with audit trail
+  - **VERIFIED PRICING**: $15.00-17.00/sq ft for 5000 sq ft systems from validated sources
+- [x] **VALIDATION COMPLETED ✅** - 2.3 Investigate trellis systems for vanilla vines (See: data/vanilla_trellis_systems_research_2025.md)
+  - Phase 1: ✅ Source verification - European vineyard posts, wire/cable suppliers, shade cloth pricing all verified
+  - Phase 2: ✅ Database reconciliation - Item names corrected, confidence levels set to HIGH
+  - Phase 3: ✅ Research file status - Complete 3-option system analysis ($7,800-16,000 range)
+  - Phase 4: ✅ Documentation complete - Installation costs and vanilla modifications included
+  - **VERIFIED SOURCES**: European posts ($8-10), Jakob Rope/Gripple wire, Shade Cloth Store ($0.25-0.40/sq ft)
+- [x] **VALIDATION COMPLETED ✅** - 2.4 Cost irrigation/fertigation equipment (See: data/irrigation_fertigation_systems_research_2025.md)
+  - Phase 1: ✅ Source verification - Netafim and Hunter Irrigation confirmed as specialized suppliers
+  - Phase 2: ✅ Database reconciliation - Item names cleaned, confidence levels set to MEDIUM
+  - Phase 3: ✅ Research file status - Comprehensive technical documentation completed
+  - Phase 4: ✅ Documentation complete - Validation methodology documented
+  - **VERIFIED SOURCES**: Netafim (greenhouse specialists), Dosatron (fertigation systems), Hunter HDL systems
+- [x] **VALIDATION COMPLETED ✅** - 2.5 Research climate control systems (HVAC, fans, shade cloth) (See: data/greenhouse_climate_control_systems_research_2025.md)
+  - Phase 1: ✅ Source verification - Priva, Argus Controls, Greenhouse Megastore all verified with current pricing
+  - Phase 2: ✅ Database reconciliation - 19 malformed item names corrected to proper equipment names
+  - Phase 3: ✅ Research file status - Comprehensive Oregon City climate analysis completed
+  - Phase 4: ✅ Documentation complete - Validation methodology documented with verified contacts
+  - **VERIFIED SOURCES**: Priva (Juan Gonzalez contact), Argus Controls (TITAN Envoy), Greenhouse Megastore pricing
+- [x] **VALIDATION COMPLETED ✅** - 2.6 Price supplemental lighting if needed (See: data/vanilla_supplemental_lighting_research_2025.md)
+  - Phase 1: ✅ Source verification - Gavita, California LightWorks, Fluence LED systems all verified
+  - Phase 2: ✅ Database reconciliation - 10 malformed item names corrected to proper equipment names  
+  - Phase 3: ✅ Research file status - Comprehensive analysis confirms necessity for Oregon winters
+  - Phase 4: ✅ Documentation complete - Validation methodology documented with cost justification
+  - **VERIFIED SOURCES**: Gavita RS 1900e ($800-2024), California LightWorks MegaDrive, Fluence commercial systems
 
 #### Curing Facility
-- [ ] **DATABASE POPULATION REQUIRED** - 2.7 Research curing chamber systems (fermentation, sweating, drying) (See: data/vanilla_curing_chamber_systems_research_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.8 Price dehydration equipment for flavor development (See: data/vanilla_dehydration_equipment_flavor_development_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.9 Cost temperature/humidity control for curing process (See: data/temperature_humidity_control_curing_systems_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.10 Investigate packaging equipment for cured beans (See: data/vanilla_packaging_equipment_research_2025.md)
+- [x] **VALIDATION COMPLETED** ✅ - 2.7 Research curing chamber systems (fermentation, sweating, drying) (See: data/vanilla_curing_chamber_systems_research_2025.md) - *8 comprehensive systems added to database*
+- [x] **VALIDATION COMPLETED** ✅ - 2.8 Price dehydration equipment for flavor development (See: data/vanilla_dehydration_equipment_flavor_development_2025.md) - *11 systems added, major pricing corrections from verification*  
+- [x] **VALIDATION COMPLETED** ✅ - 2.9 Cost temperature/humidity control for curing process (See: data/temperature_humidity_control_curing_systems_2025.md) - *11 systems added with verified Memmert + Fisher Scientific*
+- [x] **VALIDATION COMPLETED** ✅ - 2.10 Investigate packaging equipment for cured beans (See: data/vanilla_packaging_equipment_research_2025.md) - *10 systems added with verified Uline H-1075 at $2,525*
 
 #### Extraction Facility (Self-Owned)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.11 Research extraction equipment (ethanol and water-based methods only, no CO2 extraction) (See: data/vanilla_extraction_equipment_ethanol_water_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.12 Price distillation and concentration equipment for ethanol/water extraction (See: data/vanilla_distillation_concentration_equipment_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.13 Research vanilla processing labor and operational costs (See: data/vanilla_processing_labor_operational_costs_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.14 Calculate energy costs for greenhouse and processing operations (See: data/vanilla_energy_costs_greenhouse_processing_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.15 Research infrastructure requirements for ethanol/water extraction facilities (See: data/vanilla_extraction_facility_infrastructure_2025.md)
+- [x] **VALIDATION COMPLETED** ✅ - 2.11 Research extraction equipment (ethanol and water-based methods only, no CO2 extraction) (See: data/vanilla_extraction_equipment_ethanol_water_2025.md) - *10 systems added ranging $37k-325k for percolation-based extraction*
+- [x] **VALIDATION COMPLETED** ✅ - 2.12 Price distillation and concentration equipment for ethanol/water extraction (See: data/vanilla_distillation_concentration_equipment_2025.md) - *10 systems added ranging $15k-525k with verified Ecodyst, Cedarstone suppliers*
+- [x] **VALIDATION COMPLETED** ✅ - 2.13 Research vanilla processing labor and operational costs (See: data/vanilla_processing_labor_operational_costs_2025.md) - *10 positions added with verified Oregon wages $42k-78k annual, updated to July 2025 minimum wage $16.30*
+- [x] **VALIDATION COMPLETED** ✅ - 2.14 Calculate energy costs for greenhouse and processing operations (See: data/vanilla_energy_costs_greenhouse_processing_2025.md) - *10 energy categories added ranging $15,300-75,700/year, Oregon electricity rates $0.11-0.14/kWh, natural gas $1.50/therm*
+- [x] **VALIDATION COMPLETED** ✅ - 2.15 Research infrastructure requirements for ethanol/water extraction facilities (See: data/vanilla_extraction_facility_infrastructure_2025.md) - *10 infrastructure categories added ranging $15k-3.2M for complete facility development*
 
 #### Operational Costs
-- [ ] **DATABASE POPULATION REQUIRED** - 2.16 Estimate water consumption and costs (Oregon City rates with near 100% recycling targets) (See: data/vanilla_water_consumption_costs_oregon_city_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.17 Research fertilizer/nutrient programs (including earthworm castings, contractor-applied) (See: data/vanilla_fertilizer_nutrient_programs_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.18 Price growing media/substrate for traditional bench system (See: data/vanilla_growing_media_substrate_costs_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.19 Estimate contractor labor requirements and costs (See: data/vanilla_contractor_labor_requirements_costs_2025.md)
+- [x] **VALIDATION COMPLETED** ✅ - 2.16 Estimate water consumption and costs (Oregon City rates with near 100% recycling targets) (See: data/vanilla_water_consumption_costs_oregon_city_2025.md) - *10 water cost categories added ranging $6,198-15,140/year, Oregon City rates verified via direct website access*
+- [x] **VALIDATION COMPLETED** ✅ - 2.17 Research fertilizer/nutrient programs (including earthworm castings, contractor-applied) (See: data/vanilla_fertilizer_nutrient_programs_2025.md) - *10 comprehensive nutrition programs added ranging $70-2,150/year, Uncle Jim's Worm Farm verified as legitimate supplier*
+- [x] **VALIDATION COMPLETED** ✅ - 2.18 Price growing media/substrate for traditional bench system (See: data/vanilla_growing_media_substrate_costs_2025.md) - *12 growing media categories added ranging $30-180/cubic yard components, $88-153/cubic yard complete formulations, rePotme.com verified as legitimate supplier*
+- [x] **VALIDATION COMPLETED** ✅ - 2.19 Estimate contractor labor requirements and costs (See: data/vanilla_contractor_labor_costs_analysis_2025.md) - *10 contractor labor categories added ranging $15k-383k/year comprehensive programs, Oregon BOLI wage rates verified ($15.05/hour standard), specialist rates $32.50-45/hour*
 
 #### Circular Economy Systems (Per Slide 9, 12)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.21 Research water recycling systems for near 100% water recovery (See: data/vanilla_water_recycling_systems_research_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.22 Price waste-to-revenue processing equipment for cuttings, organic matter, heat recovery (See: data/waste_to_revenue_processing_equipment_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.23 Cost organic waste recycling partnerships (See: data/organic_waste_recycling_partnerships_2025.md)
+- [ ] **UNCHECKED - AWAITING VALIDATION** - 2.21 Research water recycling systems for near 100% water recovery (See: data/vanilla_water_recycling_systems_research_2025.md)
+- [ ] **UNCHECKED - AWAITING VALIDATION** - 2.22 Price waste-to-revenue processing equipment for cuttings, organic matter, heat recovery (See: data/waste_to_revenue_processing_equipment_2025.md)
+- [ ] **UNCHECKED - AWAITING VALIDATION** - 2.23 Cost organic waste recycling partnerships (See: data/organic_waste_recycling_partnerships_2025.md)
 
 #### Renewable Energy Options
-- [ ] **DATABASE POPULATION REQUIRED** - 2.24 Research Oregon City utility renewable energy premium costs (See: data/oregon_city_renewable_energy_premium_costs_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.25 Calculate ROI for owned vs purchased renewable energy (See: data/owned_vs_purchased_renewable_energy_roi_2025.md)
+- [ ] **UNCHECKED - AWAITING VALIDATION** - 2.24 Research Oregon City utility renewable energy premium costs (See: data/oregon_city_renewable_energy_premium_costs_2025.md)
+- [ ] **UNCHECKED - AWAITING VALIDATION** - 2.25 Calculate ROI for owned vs purchased renewable energy (See: data/owned_vs_purchased_renewable_energy_roi_2025.md)
 
 #### Vanilla-Specific Equipment
-- [ ] **DATABASE POPULATION REQUIRED** - 2.28 Research pollination tools and supplies for Grade A vanilla (See: data/vanilla_pollination_tools_supplies_2025.md)
-- [ ] **DATABASE POPULATION REQUIRED** - 2.29 Cost quality testing equipment for Grade A vanilla beans (See: data/vanilla_quality_testing_equipment_2025.md)
+- [ ] **UNCHECKED - AWAITING VALIDATION** - 2.28 Research pollination tools and supplies for Grade A vanilla (See: data/vanilla_pollination_tools_supplies_2025.md)
+- [ ] **UNCHECKED - AWAITING VALIDATION** - 2.29 Cost quality testing equipment for Grade A vanilla beans (See: data/vanilla_quality_testing_equipment_2025.md)
 
 ### Milestone 3: Partner & Produce Costs (Weeks 4-5)
 #### Sourcing Costs

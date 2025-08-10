@@ -120,11 +120,115 @@ When collecting any cost data, follow this sequence:
 
 </reasoning_steps>
 
+## <critical_task_validation_protocol>
+
+### 🚨 CRITICAL TASK VALIDATION REQUIREMENT - IMMEDIATE PRIORITY 🚨
+
+**FUNDAMENTAL ISSUE IDENTIFIED**: Database contains unvalidated, potentially incorrect data extracted from research files without proper verification. ALL MILESTONE 2 TASKS REQUIRE COMPLETE RE-VALIDATION.
+
+**MANDATORY VALIDATION PROCESS FOR EACH TASK**:
+
+### Phase 1: Source Verification (REQUIRED FOR EVERY TASK)
+1. **Re-access EVERY source URL mentioned in research file**
+2. **Verify actual numbers on source websites match extracted data**
+3. **Screenshot critical pricing pages for audit trail**
+4. **Check if sources are still active and current**
+5. **Validate company names, product specifications, and pricing claims**
+
+### Phase 2: Database Reconciliation (REQUIRED FOR EVERY TASK)
+1. **Compare every database entry against source validation**
+2. **Fix incorrect item names (remove markdown artifacts)**
+3. **Correct any wrong pricing data**
+4. **Ensure unit specifications are accurate**
+5. **Verify confidence levels match source quality**
+
+### Phase 3: Research File Cleanup (REQUIRED FOR EVERY TASK)
+1. **Remove duplicated numerical data from .md files**
+2. **Keep research context, insights, and methodology**
+3. **Add "Database Validation Status: VERIFIED" section**
+4. **Document any corrections or updates made**
+
+### Phase 4: Comprehensive Documentation (REQUIRED FOR EVERY TASK)
+1. **Add validation date and methodology to research file**
+2. **Note any discrepancies found and corrections made**
+3. **Provide confidence assessment for all data points**
+4. **Create audit trail for all changes**
+
+**VALIDATION CRITERIA - EVERY ITEM MUST MEET ALL**:
+- ✅ Source URL accessible and contains stated information
+- ✅ Pricing data exactly matches source (within ±5% for reasonable differences)
+- ✅ Item names are proper equipment/product names (no markdown artifacts)
+- ✅ Company names spelled correctly and match source
+- ✅ Specifications match source documentation
+- ✅ Units are appropriate and consistent
+- ✅ Database entry has minimum 1, ideally 3+ source references
+
+**ZERO TOLERANCE FOR**:
+- ❌ Unverified pricing claims
+- ❌ Broken or inaccessible source links
+- ❌ Malformed item names with pricing information
+- ❌ Assumptions without source backing
+- ❌ Outdated pricing (pre-2024)
+
+### Task-by-Task Validation Checklist
+**EVERY MILESTONE 2 TASK MUST BE MARKED**:
+- [ ] Task 2.X - Source URLs re-accessed and verified ✅
+- [ ] Task 2.X - All database entries validated against sources ✅
+- [ ] Task 2.X - Item names cleaned and semantically correct ✅
+- [ ] Task 2.X - Research file updated with validation status ✅
+- [ ] Task 2.X - Audit trail documented ✅
+
+**DATABASE POPULATION FAILURE ANALYSIS**: 
+Initial database population was automated extraction without verification. Many entries contain:
+- Cost descriptions instead of equipment names
+- Markdown formatting artifacts (⭐, **, etc.)
+- Pricing ranges in name fields
+- Unverified numerical claims
+- Missing or incorrect source attributions
+
+**RECOVERY PROTOCOL**:
+1. **STOP** all other work until validation complete
+2. **VALIDATE** each task comprehensively using above protocol  
+3. **DOCUMENT** all corrections and verification steps
+4. **COMMIT** validated data with detailed audit trail
+5. **UPDATE** PLAN.md task status only after full validation
+
+### SYSTEMATIC VALIDATION APPROACH - TASK 2.1 LEARNINGS
+
+**CRITICAL FINDINGS FROM INITIAL VALIDATION**:
+- Missing research files indicate incomplete original work
+- Database entries with no source references are fundamentally unusable
+- Pricing without verification dates becomes immediately obsolete
+- Item names containing markdown artifacts indicate automated extraction errors
+
+**ENHANCED VALIDATION STEPS**:
+1. **File Existence Check**: Verify research file exists before database validation
+2. **Missing File Protocol**: If research file missing, recreate with current validation findings
+3. **Database Entry Audit**: Check every entry for source references, pricing verification, proper naming
+4. **Confidence Level Standards**: Mark all unverified entries as "UNVERIFIED - REQUIRES SOURCE VALIDATION"
+5. **Vendor Contact Protocol**: Direct outreach required when public pricing unavailable
+
+**VALIDATION COMPLETION CRITERIA**:
+A task is ONLY complete when:
+- ✅ Research file exists with current validation status
+- ✅ ALL database entries have verified source references  
+- ✅ ALL pricing confirmed within last 6 months
+- ✅ ALL item names are proper product/equipment names
+- ✅ Confidence levels reflect actual verification status
+- ✅ Next actions documented for ongoing verification needs
+
+**COMMON VALIDATION FAILURES TO PREVENT**:
+- ❌ Accepting database entries without source verification
+- ❌ Assuming research files are complete without checking
+- ❌ Using pricing without confirmation dates
+- ❌ Leaving malformed item names uncorrected
+- ❌ Missing vendor contact when quotes required
+
 ## <database_backup_protocol>
 
 ### 🚨 MANDATORY DATABASE BACKUP PROTOCOL 🚨
 
-**CRITICAL**: After completion of each PLAN.md task, ALWAYS perform database backup and commit.
+**CRITICAL**: After completion of each PLAN.md task validation, ALWAYS perform database backup and commit.
 
 **Database File Locations**:
 - **Main Database**: `data/costs/vanilla_costs.db`
@@ -135,6 +239,7 @@ When collecting any cost data, follow this sequence:
 2. **Stage Both Files**: `git add data/costs/vanilla_costs.db data/costs/vanilla_costs_backup.db`
 3. **Commit with Task Reference**: Include task number and brief description
 4. **Verify Backup**: Ensure both .db files are committed to git history
+5. **🚨 ENSURE NO DUPLICATES**: Always check for exact duplicates (same item_id, name, specifications) before database population
 
 **Example Command Sequence**:
 ```bash
