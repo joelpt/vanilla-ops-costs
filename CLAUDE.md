@@ -850,32 +850,50 @@ A milestone is ONLY complete when:
 - **Defensive Programming**: Copy data structures before modification to prevent side effects
 - **Single Responsibility Principle**: Extract helper methods early to maintain clean architecture
 
-## Database Schema Reference (Updated January 10, 2025)
+## Database Schema Reference (Updated August 10, 2025)
 
 ### Core Tables Structure
 
+**revenue_streams**
+- Primary classification table: id, name, code ('grow_produce', 'partner_produce', 'make_produce'), description, production_target
+
+**cost_categories**
+- Links to revenue_streams via revenue_stream_id
+- Contains: id, name, code, description, parent_category_id (for subcategories)
+
 **cost_items** (481 records)
-- Primary table for cost items with item_name, item_id, specifications (JSON)
+- Primary table for cost items: item_id (unique user-friendly ID), item_name, specifications (JSON)
 - Links to cost_categories via category_id
-- Contains notes, status, timestamps
+- Contains: notes, status ('active'/'deprecated'/'pending'), created_at, updated_at
 
 **cost_pricing** (539 records) 
 - Links to cost_items via cost_item_id
-- Contains unit_cost, unit, confidence_level, effective_date, total_cost_5000sqft
+- Contains: unit_cost, unit, currency (default 'USD'), effective_date, volume_tier, total_cost_5000sqft, confidence_level, costing_method
 - **CRITICAL**: Source references link to this table, not cost_items directly
 
 **source_references** (496 records)
 - Links to cost_pricing via cost_pricing_id (NOT cost_items directly)
 - Links to sources via source_id  
-- Contains source_url, reference_type, date_accessed, product_code, quote_number
+- Contains: reference_type ('primary'/'validation'/'comparison'), source_url, product_code, quote_number, date_accessed, screenshot_path, notes
 
 **sources** (71 records)
-- Contains company_name, source_type, reliability_score, is_verified
+- Contains: company_name (unique), company_type, website_url, contact_info (JSON), tier (1=preferred, 2=acceptable, 3=caution), is_active
+
+**volume_discounts**
+- Links to cost_items via cost_item_id
+- Contains quantity tiers with discount pricing for bulk purchases
+
+**validation_rules & validation_results**
+- System for automated data quality checks and validation tracking
+
+**collection_sessions & collection_log**
+- Audit trail for data collection activities and changes
 
 ### Key Schema Relationships
 ```
-cost_items → cost_pricing → source_references → sources
-     481         539             496            71
+revenue_streams → cost_categories → cost_items → cost_pricing → source_references → sources
+                                        ↓              ↓
+                                 volume_discounts  validation_results
 ```
 
 ### Current Data Quality Status
