@@ -253,12 +253,12 @@ Create a data-driven cost model with verifiable sources for:
   - **COST SAVINGS**: $3k-8k annually vs traditional disposal methods
 
 #### Renewable Energy Options
-- [ ] **UNCHECKED - AWAITING VALIDATION** - 2.24 Research Oregon City utility renewable energy premium costs (See: data/oregon_city_renewable_energy_premium_costs_2025.md)
-- [ ] **UNCHECKED - AWAITING VALIDATION** - 2.25 Calculate ROI for owned vs purchased renewable energy (See: data/owned_vs_purchased_renewable_energy_roi_2025.md)
+- [x] **VALIDATION COMPLETED ✅** - 2.24 Research Oregon City utility renewable energy premium costs (See: data/oregon_city_renewable_energy_premium_costs_2025.md)
+- [x] **VALIDATION COMPLETED ✅** - 2.25 Calculate ROI for owned vs purchased renewable energy (See: data/owned_vs_purchased_renewable_energy_roi_2025.md)
 
 #### Vanilla-Specific Equipment
-- [ ] **UNCHECKED - AWAITING VALIDATION** - 2.28 Research pollination tools and supplies for Grade A vanilla (See: data/vanilla_pollination_tools_supplies_2025.md)
-- [ ] **UNCHECKED - AWAITING VALIDATION** - 2.29 Cost quality testing equipment for Grade A vanilla beans (See: data/vanilla_quality_testing_equipment_2025.md)
+- [x] **VALIDATION COMPLETED ✅** - 2.28 Research pollination tools and supplies for Grade A vanilla (See: data/vanilla_pollination_tools_supplies_2025.md)
+- [x] **VALIDATION COMPLETED ✅** - 2.29 Cost quality testing equipment for Grade A vanilla beans (See: data/vanilla_quality_testing_equipment_2025.md)
 
 ### Milestone 3: Source Reference Backfill (Priority Task)
 
