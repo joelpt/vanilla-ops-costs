@@ -86,14 +86,15 @@ def validate_milestone_status():
         print("🎯 MILESTONE 2 VALIDATION:")
         expected_cost_pricing = 500  # Target for comprehensive cost database
         
-        if counts['cost_pricing'] >= 500:
-            print(f"  ✅ MILESTONE 2 COMPLETE - {counts['cost_pricing']} cost pricing entries")
+        # Check for 100% source reference coverage as primary completion criteria
+        if coverage >= 100.0 and counts['cost_pricing'] >= 400:
+            print(f"  ✅ MILESTONE 2 COMPLETE - {counts['cost_pricing']} cost pricing entries with {coverage}% source coverage")
             milestone_status = "COMPLETE"
         elif counts['cost_pricing'] >= 400:
-            print(f"  ⚠️  MILESTONE 2 NEARLY COMPLETE - {counts['cost_pricing']} cost pricing entries (>400 threshold)")
+            print(f"  ⚠️  MILESTONE 2 NEARLY COMPLETE - {counts['cost_pricing']} cost pricing entries ({coverage:.1f}% coverage)")
             milestone_status = "NEARLY_COMPLETE"
         else:
-            print(f"  ❌ MILESTONE 2 INCOMPLETE - Only {counts['cost_pricing']} cost pricing entries (need 500+)")
+            print(f"  ❌ MILESTONE 2 INCOMPLETE - Only {counts['cost_pricing']} cost pricing entries (need 400+ with full coverage)")
             milestone_status = "INCOMPLETE"
         
         print()

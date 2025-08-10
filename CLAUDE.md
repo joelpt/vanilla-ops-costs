@@ -193,6 +193,8 @@ Initial database population was automated extraction without verification. Many 
 4. **COMMIT** validated data with detailed audit trail
 5. **UPDATE** PLAN.md task status only after full validation
 
+</critical_task_validation_protocol>
+
 ### SYSTEMATIC VALIDATION APPROACH - TASK 2.1 LEARNINGS
 
 **CRITICAL FINDINGS FROM INITIAL VALIDATION**:
@@ -847,6 +849,61 @@ A milestone is ONLY complete when:
 - **Test-Driven Infrastructure**: Build test coverage alongside features for reliability
 - **Defensive Programming**: Copy data structures before modification to prevent side effects
 - **Single Responsibility Principle**: Extract helper methods early to maintain clean architecture
+
+## Database Schema Reference (Updated January 10, 2025)
+
+### Core Tables Structure
+
+**cost_items** (481 records)
+- Primary table for cost items with item_name, item_id, specifications (JSON)
+- Links to cost_categories via category_id
+- Contains notes, status, timestamps
+
+**cost_pricing** (539 records) 
+- Links to cost_items via cost_item_id
+- Contains unit_cost, unit, confidence_level, effective_date, total_cost_5000sqft
+- **CRITICAL**: Source references link to this table, not cost_items directly
+
+**source_references** (496 records)
+- Links to cost_pricing via cost_pricing_id (NOT cost_items directly)
+- Links to sources via source_id  
+- Contains source_url, reference_type, date_accessed, product_code, quote_number
+
+**sources** (71 records)
+- Contains company_name, source_type, reliability_score, is_verified
+
+### Key Schema Relationships
+```
+cost_items → cost_pricing → source_references → sources
+     481         539             496            71
+```
+
+### Current Data Quality Status
+- **Source Reference Coverage**: 496/539 pricing entries (92.0%)
+- **Missing Source References**: 43 pricing entries without source attribution
+- **Supplier Diversity**: 71 unique verified sources
+- **Data Integrity**: High - comprehensive cost database with verified pricing
+
+### Critical Query Patterns
+```sql
+-- Find pricing entries missing source references
+SELECT COUNT(*) FROM cost_pricing 
+WHERE id NOT IN (SELECT cost_pricing_id FROM source_references);
+
+-- Source reference coverage calculation  
+SELECT COUNT(DISTINCT sr.cost_pricing_id) * 100.0 / COUNT(DISTINCT cp.id) as coverage
+FROM cost_pricing cp LEFT JOIN source_references sr ON cp.id = sr.cost_pricing_id;
+
+-- Items with multiple source references (validation sources)
+SELECT cost_pricing_id, COUNT(*) as ref_count 
+FROM source_references GROUP BY cost_pricing_id HAVING COUNT(*) > 1;
+```
+
+### Database Maintenance Notes
+- Source references are validation-critical - missing references indicate incomplete data
+- Multiple references per pricing entry are normal (primary + validation sources)
+- Schema enforces foreign key constraints preventing orphaned records
+- Unique constraints prevent duplicate source references per pricing entry
 
 ## Success Metrics Tracking
 
