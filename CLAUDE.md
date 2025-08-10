@@ -942,3 +942,5 @@ python scripts/update_sources.py
 *Last Updated: January 9, 2025*
 *Version: 1.2*
 - CRITICAL: Every cost item / cost pricing entry in the db MUST be accompanied by 1+ source references!
+- CRITICAL: Any costing and pricing research MUST (a) add relevant cost numbers to the db (b) add related source references to the db for each cost item or pricing cost (c) critically analyze what we added to the db to ensure it is accurate, comprehensive, and meets all requirements set out in CLAUDE.md.
+- When working from tasks in PLAN.md, always mark a task as complete after (a) you have verified you entered data into the db including cost and source reference data whenever relevant to the task and (b) verified the accuracy of the data entered and any .md data written out.
